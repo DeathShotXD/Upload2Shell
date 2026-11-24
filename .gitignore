@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# lab artifacts
+debs/
+ubuntu/debs-*/
+ubuntu/dbgsym/
+*.deb
+*.ddeb
+
+# local scope files
+scope.json
+scope*.json
+!docs/scope.example.json
+
+# tool output
+*.log
+*.out

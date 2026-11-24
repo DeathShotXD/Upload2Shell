@@ -1,0 +1,29 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "U2S.PPD"
+*Manufacturer: "Upload2Shell Lab"
+*Product: "(PDF)"
+*ModelName: "Upload2Shell PDF"
+*ShortNickName: "U2S"
+*NickName: "Upload2Shell PDF"
+*PSVersion: "(3010.000) 0"
+*LanguageLevel: "3"
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*FileSystem: False
+*Throughput: "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*cupsFilter: "application/pdf 0 -"
+*cupsFilter2: "application/postscript application/pdf 0 gstopdf"
+*OpenUI *PageSize/Page Size: PickOne
+*DefaultPageSize: A4
+*PageSize A4/A4: ""
+*CloseUI: *PageSize
+*OpenUI *Resolution/Resolution: PickOne
+*DefaultResolution: 300dpi
+*Resolution 300dpi/300 DPI: ""
+*CloseUI: *Resolution

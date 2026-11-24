@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  static:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: compile
+        run: python -m py_compile cups_poc.py
+      - name: unit tests
+        run: python -m unittest discover -s tests -v
+
+  docker-lab:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: fetch vulnerable packages
+        run: bash fetch-debs.sh
+      - name: build lab
+        run: docker build -t upload2shell-deb13 .
+      - name: published PoC (native write)
+        run: |
+          out=$(docker run --rm upload2shell-deb13 \
+            gs -dSAFER -sDEVICE=nullpage -q /root/poc-native-write.pdf)
+          echo "$out"
+          echo "$out" | grep -q "BEFORE=319"
+          echo "$out" | grep -q "HIJACKED=18"
+          echo "$out" | grep -q "RESTORED=319"

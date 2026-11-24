@@ -1,0 +1,27 @@
+[project]
+name = "upload2shell"
+version = "0.2.0"
+description = "CVE-2026-125396 zero-click RCE chain for Debian 13 and Ubuntu 22.04/24.04 via CUPS and Ghostscript"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "DeathShotXD" }]
+keywords = ["cve-2026-125396", "ghostscript", "cups", "ipp", "rce", "security-research"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Security",
+]
+
+[project.scripts]
+upload2shell = "cups_poc:main"
+
+[project.urls]
+Homepage = "https://github.com/DeathShotXD/Upload2Shell"
+
+[tool.setuptools]
+py-modules = ["cups_poc"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

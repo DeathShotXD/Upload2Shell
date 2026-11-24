@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this lab or proof of concept, cite the repository and the CVE record."
+title: "Upload2Shell: CVE-2026-125396 zero-click RCE chain (Debian 13, Ubuntu 22.04/24.04)"
+abstract: "A zero-click exploitation chain for CVE-2026-125396: anonymous IPP Print-Job to a shared CUPS queue, gstopdf/gstoraster, Ghostscript -dSAFER Type 1 font use-after-free, native path-control bypass, and command execution as the filter account."
+authors:
+  - family-names: "DeathShotXD"
+    alias: "DeathShotXD"
+date-released: "2026-11-24"
+version: "0.2.0"
+repository-code: "https://github.com/DeathShotXD/Upload2Shell"
+url: "https://github.com/DeathShotXD/Upload2Shell"
+license: "MIT"
+keywords:
+  - "CVE-2026-125396"
+  - "Ghostscript"
+  - "CUPS"
+  - "IPP"
+  - "RCE"
+  - "security research"
+references:
+  - type: generic
+    title: "CVE-2026-125396"
+    url: "https://www.cve.org/CVERecord?id=CVE-2026-125396"
+  - type: generic
+    title: "pwn.ai research"
+    url: "https://pwn.ai/upload2shell/research.html"
