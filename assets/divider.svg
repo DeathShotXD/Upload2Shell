@@ -1,24 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 40" width="100%" role="img" aria-label="section divider">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 48" width="100%" role="img" aria-label="section divider">
   <defs>
     <linearGradient id="d-fade" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#149E8E" stop-opacity="0"/>
-      <stop offset="0.22" stop-color="#1E3A42"/>
-      <stop offset="0.78" stop-color="#1E3A42"/>
+      <stop offset="0.2" stop-color="#1E3A42"/>
+      <stop offset="0.42" stop-color="#149E8E" stop-opacity="0.8"/>
+      <stop offset="0.58" stop-color="#149E8E" stop-opacity="0.8"/>
+      <stop offset="0.8" stop-color="#1E3A42"/>
       <stop offset="1" stop-color="#149E8E" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="d-diamond" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8FFF6"/>
+      <stop offset="1" stop-color="#149E8E"/>
+    </linearGradient>
+    <filter id="d-glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <line x1="0" y1="20" x2="540" y2="20" stroke="url(#d-fade)"/>
-  <line x1="660" y1="20" x2="1200" y2="20" stroke="url(#d-fade)"/>
-  <!-- pixel centre -->
-  <g fill="#2EE6D2">
-    <rect x="593" y="13" width="14" height="14"/>
-    <rect x="590" y="16" width="20" height="8"/>
+  <line x1="0" y1="24" x2="1200" y2="24" stroke="url(#d-fade)" stroke-width="2"/>
+  <g filter="url(#d-glow)">
+    <rect x="592" y="16" width="16" height="16" transform="rotate(45 600 24)" fill="url(#d-diamond)"/>
+    <rect x="597" y="21" width="6" height="6" fill="#04070A"/>
   </g>
-  <rect x="597" y="17" width="6" height="6" fill="#03070B"/>
   <g fill="#F5871F">
-    <rect x="572" y="18" width="6" height="6"/>
-    <rect x="622" y="18" width="6" height="6"/>
-    <rect x="556" y="19" width="4" height="4" opacity="0.6"/>
-    <rect x="640" y="19" width="4" height="4" opacity="0.6"/>
+    <rect x="566" y="21" width="6" height="6"/>
+    <rect x="628" y="21" width="6" height="6"/>
+  </g>
+  <g fill="#2EE6D2" opacity="0.6">
+    <rect x="548" y="22" width="4" height="4"/>
+    <rect x="648" y="22" width="4" height="4"/>
+    <rect x="534" y="23" width="2" height="2"/>
+    <rect x="664" y="23" width="2" height="2"/>
   </g>
 </svg>

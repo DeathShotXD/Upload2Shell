@@ -14,11 +14,11 @@ tested in a Docker lab.
 - Original PoC: https://pwn.ai/upload2shell/poc-native-write.pdf
 
 <p align="center">
-  <img src="assets/banner.png" alt="Upload2Shell: a worker at an industrial printer that is printing a cyan Ghostscript portal and a uid=7(lp) shell prompt" width="100%">
+  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="170">
 </p>
 
 <p align="center">
-  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="150">
+  <img src="assets/banner.png" alt="Upload2Shell: a worker at an industrial printer that is printing a cyan Ghostscript portal and a uid=7(lp) shell prompt" width="100%">
 </p>
 
 <p align="center">
@@ -183,6 +183,7 @@ lab/cupsd.conf           anonymous shared queue config
 lab/entrypoint.sh        Debian lab bootstrap
 fetch-debs.sh            pins +deb13u1 from snapshot.debian.org
 Dockerfile               debian:13 with the vulnerable Ghostscript
+REPRODUCTION.md          manual lab steps and screen-record notes
 assets/                  banner, logo, flow, lab, stats, divider, demo GIF
 scripts/make_demo.py     renders the demo GIF from the real run
 .github/workflows/ci.yml static matrix plus the Docker lab job

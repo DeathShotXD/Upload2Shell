@@ -14,11 +14,6 @@ ubuntu/dbgsym/
 *.deb
 *.ddeb
 
-# local scope files
-scope.json
-scope*.json
-!docs/scope.example.json
-
 # tool output
 *.log
 *.out

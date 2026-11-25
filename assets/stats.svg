@@ -1,79 +1,135 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
-  <title id="u2s-t">Upload2Shell: verified facts</title>
-  <desc id="u2s-d">CVE-2026-125396, CVSS 8.5, zero-click, CUPS, Ghostscript, A/B lab, first PoC, fixed in 10.08.0, Debian 13, Ubuntu 22/24.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
+  <title id="u2s-t">Upload2Shell verified facts</title>
+  <desc id="u2s-d">CVE-2026-125396, CVSS 8.5, zero click, CUPS, Ghostscript, A/B lab, Docker, first PoC, fixed in 10.08.0, Debian 13, Ubuntu 22 and 24.</desc>
   <defs>
-    <linearGradient id="s-ink" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#03070B"/>
-      <stop offset="1" stop-color="#06121A"/>
+    <linearGradient id="s-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C141B"/>
+      <stop offset="0.55" stop-color="#060B10"/>
+      <stop offset="1" stop-color="#04070A"/>
     </linearGradient>
-    <pattern id="s-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <path d="M22 0H0V22" fill="none" stroke="#0E2229" stroke-width="1"/>
+    <radialGradient id="s-teal" cx="0.1" cy="1.05" r="0.9">
+      <stop offset="0" stop-color="#2EE6D2" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#149E8E" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#149E8E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="s-warm" cx="0.9" cy="-0.1" r="0.85">
+      <stop offset="0" stop-color="#F8C24A" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#F5871F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="s-vig" cx="0.5" cy="0.45" r="0.8">
+      <stop offset="0" stop-color="#02040A" stop-opacity="0"/>
+      <stop offset="0.72" stop-color="#02040A" stop-opacity="0"/>
+      <stop offset="1" stop-color="#02040A" stop-opacity="0.55"/>
+    </radialGradient>
+    <linearGradient id="s-orange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFDF9E"/>
+      <stop offset="0.42" stop-color="#F8A03C"/>
+      <stop offset="0.75" stop-color="#F5871F"/>
+      <stop offset="1" stop-color="#C05E0C"/>
+    </linearGradient>
+    <linearGradient id="s-rose" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD3DA"/>
+      <stop offset="0.5" stop-color="#F58BA0"/>
+      <stop offset="1" stop-color="#D14B60"/>
+    </linearGradient>
+    <linearGradient id="s-cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8FFF6"/>
+      <stop offset="1" stop-color="#2EE6D2"/>
+    </linearGradient>
+    <linearGradient id="s-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DDFFDF"/>
+      <stop offset="1" stop-color="#7EE787"/>
+    </linearGradient>
+    <pattern id="s-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#10242C" stroke-width="1"/>
     </pattern>
+    <pattern id="s-dither" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="#2EE6D2" opacity="0.05"/>
+      <rect x="3" y="3" width="3" height="3" fill="#2EE6D2" opacity="0.05"/>
+    </pattern>
+    <pattern id="s-scan" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000000" opacity="0.14"/>
+    </pattern>
+    <filter id="s-glowO" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="250" fill="url(#s-ink)"/>
-  <rect width="1200" height="250" fill="url(#s-grid)" opacity="0.4"/>
-  <rect x="0" y="0" width="1200" height="4" fill="#149E8E" opacity="0.5"/>
 
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5">
-    <g transform="translate(40,44)">
-      <rect width="196" height="44" rx="6" fill="#0A1A20" stroke="#F5871F" stroke-opacity="0.8"/>
-      <rect x="16" y="19" width="6" height="6" fill="#F5871F"/>
-      <text x="32" y="27" fill="#F8C24A" font-weight="700">CVE-2026-125396</text>
+  <rect width="1200" height="280" fill="url(#s-bg)"/>
+  <rect width="1200" height="280" fill="url(#s-teal)"/>
+  <rect width="1200" height="280" fill="url(#s-warm)"/>
+  <rect width="1200" height="280" fill="url(#s-grid)" opacity="0.5"/>
+  <rect x="40" y="200" width="230" height="70" fill="url(#s-dither)"/>
+
+  <g font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace" font-size="12.5" font-weight="bold">
+    <!-- row 1 -->
+    <g transform="translate(40,46)" filter="url(#s-glowO)">
+      <rect width="150" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-width="1.5"/>
+      <rect x="14" y="19" width="8" height="8" fill="url(#s-orange)"/>
+      <text x="32" y="29" fill="url(#s-orange)">CVE-2026-125396</text>
     </g>
-    <g transform="translate(252,44)">
-      <rect width="128" height="44" rx="6" fill="#0A1A20" stroke="#F26D7E" stroke-opacity="0.8"/>
-      <rect x="16" y="19" width="6" height="6" fill="#F26D7E"/>
-      <text x="32" y="27" fill="#F5A2AE" font-weight="700">CVSS 8.5</text>
+    <g transform="translate(206,46)" filter="url(#s-glowO)">
+      <rect width="132" height="46" rx="8" fill="#140A0E" stroke="#8A2833" stroke-width="1.5"/>
+      <rect x="14" y="19" width="8" height="8" fill="url(#s-rose)"/>
+      <text x="32" y="29" fill="url(#s-rose)">CVSS 8.5</text>
     </g>
-    <g transform="translate(396,44)">
-      <rect width="150" height="44" rx="6" fill="#0A1A20" stroke="#2EE6D2" stroke-opacity="0.7"/>
-      <rect x="16" y="19" width="6" height="6" fill="#2EE6D2"/>
-      <text x="32" y="27" fill="#9BF4E8">ZERO CLICK</text>
+    <g transform="translate(354,46)">
+      <rect width="120" height="46" rx="8" fill="#0A1A20" stroke="#149E8E" stroke-opacity="0.8"/>
+      <rect x="14" y="19" width="8" height="8" fill="url(#s-cyan)"/>
+      <text x="32" y="29" fill="url(#s-cyan)">ZERO CLICK</text>
     </g>
-    <g transform="translate(562,44)">
-      <rect width="132" height="44" rx="6" fill="#0A1A20" stroke="#1E3A42"/>
-      <text x="20" y="27" fill="#A9BEC8">CUPS / IPP</text>
+    <g transform="translate(490,46)">
+      <rect width="118" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">CUPS / IPP</text>
     </g>
-    <g transform="translate(710,44)">
-      <rect width="152" height="44" rx="6" fill="#0A1A20" stroke="#1E3A42"/>
-      <text x="20" y="27" fill="#A9BEC8">GHOSTSCRIPT</text>
+    <g transform="translate(624,46)">
+      <rect width="134" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">GHOSTSCRIPT</text>
     </g>
-    <g transform="translate(878,44)">
-      <rect width="120" height="44" rx="6" fill="#0A1A20" stroke="#F5871F" stroke-opacity="0.5"/>
-      <text x="20" y="27" fill="#F8C24A">A/B LAB</text>
+    <g transform="translate(774,46)">
+      <rect width="102" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-opacity="0.8"/>
+      <text x="20" y="29" fill="#F8C24A">A/B LAB</text>
     </g>
-    <g transform="translate(1014,44)">
-      <rect width="146" height="44" rx="6" fill="#0A1A20" stroke="#1E3A42"/>
-      <text x="20" y="27" fill="#A9BEC8">DOCKER</text>
+    <g transform="translate(892,46)">
+      <rect width="102" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">DOCKER</text>
+    </g>
+    <g transform="translate(1010,46)">
+      <rect width="150" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">3 DISTROS</text>
     </g>
 
-    <g transform="translate(40,114)">
-      <rect width="150" height="44" rx="6" fill="#0A1A20" stroke="#F5871F" stroke-opacity="0.8"/>
-      <rect x="16" y="19" width="6" height="6" fill="#F5871F"/>
-      <text x="32" y="27" fill="#F8C24A" font-weight="700">FIRST POC</text>
+    <!-- row 2 -->
+    <g transform="translate(40,110)" filter="url(#s-glowO)">
+      <rect width="130" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-width="1.5"/>
+      <rect x="14" y="19" width="8" height="8" fill="url(#s-orange)"/>
+      <text x="32" y="29" fill="url(#s-orange)">FIRST POC</text>
     </g>
-    <g transform="translate(206,114)">
-      <rect width="196" height="44" rx="6" fill="#0A1A20" stroke="#7EE787" stroke-opacity="0.8"/>
-      <rect x="16" y="19" width="6" height="6" fill="#7EE787"/>
-      <text x="32" y="27" fill="#A7F0B0">FIXED IN 10.08.0</text>
+    <g transform="translate(186,110)" filter="url(#s-glowO)">
+      <rect width="182" height="46" rx="8" fill="#08140C" stroke="#2E5A34" stroke-width="1.5"/>
+      <rect x="14" y="19" width="8" height="8" fill="url(#s-green)"/>
+      <text x="32" y="29" fill="url(#s-green)">FIXED IN 10.08.0</text>
     </g>
-    <g transform="translate(418,114)">
-      <rect width="164" height="44" rx="6" fill="#0A1A20" stroke="#1E3A42"/>
-      <text x="20" y="27" fill="#A9BEC8">DEBIAN 13</text>
+    <g transform="translate(384,110)">
+      <rect width="126" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">DEBIAN 13</text>
     </g>
-    <g transform="translate(598,114)">
-      <rect width="170" height="44" rx="6" fill="#0A1A20" stroke="#1E3A42"/>
-      <text x="20" y="27" fill="#A9BEC8">UBUNTU 22/24</text>
+    <g transform="translate(526,110)">
+      <rect width="150" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <text x="20" y="29" fill="#A9BEC8">UBUNTU 22/24</text>
     </g>
-    <g transform="translate(784,114)">
-      <rect width="376" height="44" rx="6" fill="#081116" stroke="#16262E"/>
-      <text x="20" y="27" fill="#7C93A0">RESPONSIBLE USE ONLY - LOCAL LAB, NEVER A LIVE TARGET</text>
+    <g transform="translate(692,110)">
+      <rect width="468" height="46" rx="8" fill="#0A1014" stroke="#3A1A20" stroke-opacity="0.9"/>
+      <rect x="14" y="19" width="8" height="8" fill="#F26D7E"/>
+      <text x="32" y="29" fill="#F5A2AE">LOCAL LAB ONLY - NEVER A LIVE TARGET</text>
     </g>
+
+    <line x1="40" y1="196" x2="1160" y2="196" stroke="#1E3A42"/>
+    <text x="40" y="232" font-size="12" font-weight="normal" fill="#7C93A0">independent chain - re-derived offsets from dbgsym - verified 2026-11-24 - not the discovery</text>
+    <rect x="1136" y="220" width="8" height="8" fill="url(#s-cyan)"/>
+    <rect x="1148" y="224" width="4" height="4" fill="url(#s-cyan)" opacity="0.6"/>
   </g>
-
-  <text x="40" y="216" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#5C7280">independent chain - re-derived offsets from dbgsym - verified 2026-11-24 - not the discovery</text>
-  <g fill="#2EE6D2">
-    <rect x="1136" y="200" width="8" height="8"/>
-    <rect x="1148" y="200" width="4" height="4" opacity="0.6"/>
-  </g>
+  <rect width="1200" height="280" fill="url(#s-scan)"/>
+  <rect width="1200" height="280" fill="url(#s-vig)"/>
 </svg>
