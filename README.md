@@ -5,6 +5,10 @@ Type 1 font loader (`.putgstringcopy`). The bug hands you a write-what-where.
 From there the payload turns off `-dSAFER`'s native path control and runs a
 command as the CUPS filter account.
 
+<p align="center">
+  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="100%">
+</p>
+
 Found and published by Paulos Yibelo / pwn.ai on 21 Nov 2026, fixed in
 Ghostscript 10.08.0. I did not find this bug. What is in here is my own chain
 for Debian 13 and Ubuntu 22.04/24.04, plus a small standalone IPP client, all
@@ -12,10 +16,6 @@ tested in a Docker lab.
 
 - Write-up: https://pwn.ai/upload2shell/research.html
 - Original PoC: https://pwn.ai/upload2shell/poc-native-write.pdf
-
-<p align="center">
-  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="170">
-</p>
 
 <p align="center">
   <img src="assets/banner.png" alt="Upload2Shell: a worker at an industrial printer that is printing a cyan Ghostscript portal and a uid=7(lp) shell prompt" width="100%">
