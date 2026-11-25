@@ -33,8 +33,8 @@ jobs:
         run: docker build -t upload2shell-deb13 .
       - name: published PoC (native write)
         run: |
-          out=$(docker run --rm upload2shell-deb13 \
-            gs -dSAFER -sDEVICE=nullpage -q /root/poc-native-write.pdf)
+          out=$(docker run --rm --entrypoint gs upload2shell-deb13 \
+            -dSAFER -sDEVICE=nullpage -q /root/poc-native-write.pdf)
           echo "$out"
           echo "$out" | grep -q "BEFORE=319"
           echo "$out" | grep -q "HIJACKED=18"

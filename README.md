@@ -151,8 +151,8 @@ docker build -t upload2shell-pwn .
 docker run -d --name u2s-pwn -p 127.0.0.1:6310:631 upload2shell-pwn
 
 # interpreter stage (published PoC)
-docker run --rm upload2shell-pwn \
-  gs -dSAFER -sDEVICE=nullpage -q /root/poc-native-write.pdf
+docker run --rm --entrypoint gs upload2shell-pwn \
+  -dSAFER -sDEVICE=nullpage -q /root/poc-native-write.pdf
 # BEFORE=319 HIJACKED=18 RESTORED=319
 ```
 
