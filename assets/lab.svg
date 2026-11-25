@@ -1,133 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
-  <title id="u2s-t">Upload2Shell lab matrix</title>
-  <desc id="u2s-d">Debian 13, Ubuntu 24.04 and Ubuntu 22.04 each return uid=7(lp); fixed builds fail at the dangling lookup.</desc>
-  <defs>
-    <linearGradient id="l-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0C141B"/>
-      <stop offset="0.55" stop-color="#060B10"/>
-      <stop offset="1" stop-color="#04070A"/>
-    </linearGradient>
-    <radialGradient id="l-teal" cx="0.08" cy="1.05" r="0.9">
-      <stop offset="0" stop-color="#2EE6D2" stop-opacity="0.15"/>
-      <stop offset="0.5" stop-color="#149E8E" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#149E8E" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="l-warm" cx="0.92" cy="-0.08" r="0.8">
-      <stop offset="0" stop-color="#F8C24A" stop-opacity="0.10"/>
-      <stop offset="1" stop-color="#F5871F" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="l-vig" cx="0.5" cy="0.45" r="0.8">
-      <stop offset="0" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="0.72" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="1" stop-color="#02040A" stop-opacity="0.55"/>
-    </radialGradient>
-    <linearGradient id="l-orange" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFDF9E"/>
-      <stop offset="0.42" stop-color="#F8A03C"/>
-      <stop offset="0.75" stop-color="#F5871F"/>
-      <stop offset="1" stop-color="#C05E0C"/>
-    </linearGradient>
-    <linearGradient id="l-cyan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#C8FFF6"/>
-      <stop offset="1" stop-color="#2EE6D2"/>
-    </linearGradient>
-    <linearGradient id="l-cream" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFF8E4"/>
-      <stop offset="1" stop-color="#EBD9AE"/>
-    </linearGradient>
-    <linearGradient id="l-row" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0C2027"/>
-      <stop offset="0.35" stop-color="#071319"/>
-      <stop offset="1" stop-color="#060F14"/>
-    </linearGradient>
-    <pattern id="l-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#10242C" stroke-width="1"/>
-    </pattern>
-    <pattern id="l-scan" width="4" height="3" patternUnits="userSpaceOnUse">
-      <rect width="4" height="1" fill="#000000" opacity="0.14"/>
-    </pattern>
-    <filter id="l-glowO" x="-30%" y="-60%" width="160%" height="220%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="l-glowC" x="-40%" y="-80%" width="180%" height="260%">
-      <feGaussianBlur stdDeviation="3" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
-  <rect width="1200" height="430" fill="url(#l-bg)"/>
-  <rect width="1200" height="430" fill="url(#l-teal)"/>
-  <rect width="1200" height="430" fill="url(#l-warm)"/>
-  <rect width="1200" height="430" fill="url(#l-grid)" opacity="0.5"/>
-
-  <g font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
-    <g filter="url(#l-glowO)" font-weight="bold">
-      <text x="38" y="62" font-size="40" letter-spacing="3" fill="#1B0B02">REAL LAB MATRIX</text>
-      <text x="38" y="59" font-size="40" letter-spacing="3" fill="url(#l-orange)" stroke="#8A4409" stroke-width="1">REAL LAB MATRIX</text>
-      <text x="38" y="58" font-size="40" letter-spacing="3" fill="none" stroke="#FFE9B0" stroke-opacity="0.4" stroke-width="0.7">REAL LAB MATRIX</text>
-    </g>
-    <text x="470" y="58" font-size="15" letter-spacing="2" fill="#7C93A0">ANONYMOUS IPP</text>
-
-    <!-- 9/9 stamp -->
-    <g transform="translate(1020,20) rotate(-2)" filter="url(#l-glowC)">
-      <rect width="146" height="52" rx="8" fill="#140C04" stroke="#F5871F" stroke-width="2"/>
-      <rect x="4" y="4" width="138" height="44" rx="5" fill="none" stroke="#F8C24A" stroke-opacity="0.4"/>
-      <text x="73" y="37" font-size="24" font-weight="bold" text-anchor="middle" fill="url(#l-orange)">9 / 9</text>
-    </g>
-
-    <!-- header row -->
-    <rect x="40" y="88" width="1120" height="38" rx="7" fill="#0C2027" stroke="#1E3A42"/>
-    <rect x="40" y="88" width="1120" height="2" fill="#149E8E" opacity="0.6"/>
-    <text x="62" y="113" font-size="13" letter-spacing="2" fill="#9BF4E8">TARGET</text>
-    <text x="320" y="113" font-size="13" letter-spacing="2" fill="#9BF4E8">GHOSTSCRIPT</text>
-    <text x="640" y="113" font-size="13" letter-spacing="2" fill="#9BF4E8">CHAIN</text>
-    <text x="950" y="113" font-size="13" letter-spacing="2" fill="#9BF4E8">RESULT</text>
-
-    <!-- row 1 -->
-    <g transform="translate(0,136)">
-      <rect x="40" width="1120" height="56" rx="7" fill="url(#l-row)" stroke="#1E3A42" stroke-opacity="0.8"/>
-      <rect x="40" width="5" height="56" fill="#7EE787"/>
-      <text x="62" y="35" font-size="14.5" font-weight="bold" fill="url(#l-cream)">Debian 13</text>
-      <text x="320" y="35" font-size="13" fill="#A9BEC8">10.05.1~dfsg-1+deb13u1</text>
-      <text x="640" y="35" font-size="13" fill="#9BF4E8">pdevice -&gt; psi_device_ref</text>
-      <rect x="938" y="14" width="132" height="27" rx="5" fill="#08140C" stroke="#7EE787" stroke-opacity="0.65"/>
-      <text x="952" y="32" font-size="12.5" font-weight="bold" fill="#A7F0B0">3/3 uid=7(lp)</text>
-    </g>
-    <!-- row 2 -->
-    <g transform="translate(0,202)">
-      <rect x="40" width="1120" height="56" rx="7" fill="url(#l-row)" stroke="#1E3A42" stroke-opacity="0.8"/>
-      <rect x="40" width="5" height="56" fill="#7EE787"/>
-      <text x="62" y="35" font-size="14.5" font-weight="bold" fill="url(#l-cream)">Ubuntu 24.04</text>
-      <text x="320" y="35" font-size="13" fill="#A9BEC8">10.02.1~dfsg1-0ubuntu7.9</text>
-      <text x="640" y="35" font-size="13" fill="#9BF4E8">pdevice -&gt; psi_device_ref</text>
-      <rect x="938" y="14" width="132" height="27" rx="5" fill="#08140C" stroke="#7EE787" stroke-opacity="0.65"/>
-      <text x="952" y="32" font-size="12.5" font-weight="bold" fill="#A7F0B0">3/3 uid=7(lp)</text>
-    </g>
-    <!-- row 3 -->
-    <g transform="translate(0,268)">
-      <rect x="40" width="1120" height="56" rx="7" fill="url(#l-row)" stroke="#1E3A42" stroke-opacity="0.8"/>
-      <rect x="40" width="5" height="56" fill="#F8C24A"/>
-      <text x="62" y="35" font-size="14.5" font-weight="bold" fill="url(#l-cream)">Ubuntu 22.04</text>
-      <text x="320" y="35" font-size="13" fill="#A9BEC8">9.55.0~dfsg1-0ubuntu5.14</text>
-      <text x="640" y="35" font-size="13" fill="#F8C24A">pdevice is gx_device*</text>
-      <rect x="938" y="14" width="132" height="27" rx="5" fill="#08140C" stroke="#7EE787" stroke-opacity="0.65"/>
-      <text x="952" y="32" font-size="12.5" font-weight="bold" fill="#A7F0B0">3/3 uid=7(lp)</text>
-    </g>
-    <!-- control row -->
-    <g transform="translate(0,334)">
-      <rect x="40" width="1120" height="56" rx="7" fill="#0A1014" stroke="#1E3A42" stroke-dasharray="6 6"/>
-      <rect x="40" width="5" height="56" fill="#F26D7E"/>
-      <text x="62" y="35" font-size="14.5" font-weight="bold" fill="#7C93A0">control</text>
-      <text x="320" y="35" font-size="13" fill="#A9BEC8">+deb13u3 / 7.10 / 5.15</text>
-      <text x="640" y="35" font-size="13" fill="#F5A2AE">dangling lookup fails</text>
-      <rect x="938" y="14" width="132" height="27" rx="5" fill="#140A0E" stroke="#F26D7E" stroke-opacity="0.65"/>
-      <text x="952" y="32" font-size="12.5" font-weight="bold" fill="#F5A2AE">no output</text>
-    </g>
-
-    <rect x="486" y="402" width="9" height="9" fill="#2EE6D2"/>
-    <text x="506" y="411" font-size="13" fill="#7C93A0">same request - same payload - three builds - one auto-detect</text>
-  </g>
-  <rect width="1200" height="430" fill="url(#l-scan)"/>
-  <rect width="1200" height="430" fill="url(#l-vig)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<title id="title">Upload2Shell lab verification matrix</title>
+<desc id="desc">Nine successful jobs across Debian 13, Ubuntu 24.04 and Ubuntu 22.04, with fixed-build controls failing at the dangling lookup.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#08151e"/><stop offset="1" stop-color="#03090f"/></linearGradient>
+ <linearGradient id="head" x2="1"><stop stop-color="#102c32"/><stop offset="1" stop-color="#151c20"/></linearGradient>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#19313a" opacity=".38"/></pattern>
+</defs>
+<rect width="1200" height="430" rx="16" fill="url(#bg)"/><rect width="1200" height="430" rx="16" fill="url(#grid)"/>
+<path d="M0 0H1200V7H0Z" fill="#ff9226"/>
+<g font-family="DejaVu Sans Mono,monospace">
+ <text x="42" y="54" fill="#ffe7b4" font-size="26" font-weight="bold" letter-spacing="2">REPRODUCED ACROSS THREE DISTROS</text>
+ <text x="44" y="80" fill="#7fa1a7" font-size="13" letter-spacing="1.5">SAME REQUEST / SAME PAYLOAD / DISTRIBUTION-SPECIFIC GHOSTSCRIPT</text>
+ <g transform="translate(1000 27)">
+  <rect width="155" height="56" rx="7" fill="#251506" stroke="#f49a2c" stroke-width="2"/>
+  <text x="77" y="24" fill="#f9c46f" text-anchor="middle" font-size="11">SUCCESSFUL JOBS</text>
+  <text x="77" y="46" fill="#fff0c9" text-anchor="middle" font-size="23" font-weight="bold">09 / 09</text>
+ </g>
+ <rect x="40" y="108" width="1120" height="42" rx="5" fill="url(#head)" stroke="#2b5558"/>
+ <g fill="#8fe9dc" font-size="13" letter-spacing="1.5">
+  <text x="65" y="135">ENVIRONMENT</text><text x="340" y="135">GHOSTSCRIPT BUILD</text><text x="680" y="135">DEVICE REFERENCE</text><text x="1000" y="135">OBSERVED RESULT</text>
+ </g>
+ <!-- rows -->
+ <g>
+  <rect x="40" y="160" width="1120" height="56" rx="5" fill="#0b1b20" stroke="#25434a"/>
+  <rect x="40" y="160" width="6" height="56" fill="#8bdc91"/>
+  <text x="65" y="195" fill="#fff0d1" font-size="16" font-weight="bold">Debian 13 (trixie)</text>
+  <text x="340" y="195" fill="#d3d9d0" font-size="14">10.05.1~dfsg-1+deb13u1</text>
+  <text x="680" y="195" fill="#82dfd1" font-size="14">pdevice -> psi_device_ref</text>
+  <rect x="984" y="174" width="150" height="28" rx="4" fill="#0c2418" stroke="#66b878"/>
+  <text x="1059" y="193" fill="#a6efae" font-size="13" text-anchor="middle" font-weight="bold">3/3 / uid=7(lp)</text>
+ </g>
+ <g>
+  <rect x="40" y="226" width="1120" height="56" rx="5" fill="#0b1b20" stroke="#25434a"/>
+  <rect x="40" y="226" width="6" height="56" fill="#8bdc91"/>
+  <text x="65" y="261" fill="#fff0d1" font-size="16" font-weight="bold">Ubuntu 24.04 (noble)</text>
+  <text x="340" y="261" fill="#d3d9d0" font-size="14">10.02.1~dfsg1-0ubuntu7.9</text>
+  <text x="680" y="261" fill="#82dfd1" font-size="14">pdevice -> psi_device_ref</text>
+  <rect x="984" y="240" width="150" height="28" rx="4" fill="#0c2418" stroke="#66b878"/>
+  <text x="1059" y="259" fill="#a6efae" font-size="13" text-anchor="middle" font-weight="bold">3/3 / uid=7(lp)</text>
+ </g>
+ <g>
+  <rect x="40" y="292" width="1120" height="56" rx="5" fill="#0b1b20" stroke="#25434a"/>
+  <rect x="40" y="292" width="6" height="56" fill="#f4b34e"/>
+  <text x="65" y="327" fill="#fff0d1" font-size="16" font-weight="bold">Ubuntu 22.04 (jammy)</text>
+  <text x="340" y="327" fill="#d3d9d0" font-size="14">9.55.0~dfsg1-0ubuntu5.14</text>
+  <text x="680" y="327" fill="#f4c878" font-size="14">pdevice is gx_device*</text>
+  <rect x="984" y="306" width="150" height="28" rx="4" fill="#0c2418" stroke="#66b878"/>
+  <text x="1059" y="325" fill="#a6efae" font-size="13" text-anchor="middle" font-weight="bold">3/3 / uid=7(lp)</text>
+ </g>
+ <g>
+  <rect x="40" y="358" width="1120" height="48" rx="5" fill="#1a1016" stroke="#81424a" stroke-dasharray="6 5"/>
+  <rect x="40" y="358" width="6" height="48" fill="#ed7881"/>
+  <text x="65" y="388" fill="#f0c6c6" font-size="15" font-weight="bold">FIXED-BUILD CONTROL</text>
+  <text x="340" y="388" fill="#cbb6b5" font-size="13">+deb13u2 / +deb13u3 / 7.10 / 5.15</text>
+  <text x="680" y="388" fill="#f19aa1" font-size="13">dangling lookup fails</text>
+  <text x="1059" y="388" fill="#f19aa1" font-size="13" text-anchor="middle">NO EXECUTION</text>
+ </g>
+</g>
+<rect x="1" y="1" width="1198" height="428" rx="15" fill="none" stroke="#27424a"/>
 </svg>

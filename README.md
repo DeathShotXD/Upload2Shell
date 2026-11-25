@@ -6,7 +6,7 @@ From there the payload turns off `-dSAFER`'s native path control and runs a
 command as the CUPS filter account.
 
 <p align="center">
-  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="100%">
+  <img src="assets/logo.png" alt="Upload2Shell logo: a printer printing a terminal prompt" width="65%">
 </p>
 
 Found and published by Paulos Yibelo / pwn.ai on 21 Nov 2026, fixed in
@@ -59,6 +59,10 @@ anonymous IPP Print-Job  (no creds, no clicking)
 
 <p align="center">
   <img src="assets/flow.svg" alt="Anonymous IPP Print-Job to gstopdf to gstoraster to Ghostscript UAF to command execution" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/mechanism.svg" alt="Type 1 font-loader use-after-free, stale reference, heap overlap, forged string view and path-control state change" width="100%">
 </p>
 
 ## What I tested
@@ -202,7 +206,7 @@ vulnerable Debian 13 image in a Docker job and checks that the published PoC
 still prints `BEFORE=319 / HIJACKED=18 / RESTORED=319`.
 
 <p align="center">
-  <img src="assets/stats.svg" alt="Upload2Shell badge wall: CVE-2026-125396, CVSS 8.5, zero-click, CUPS, Ghostscript, A/B lab, Debian 13, Ubuntu 22/24, first PoC" width="100%">
+  <img src="assets/stats.svg" alt="Upload2Shell project facts: CVE-2026-125396, CVSS 8.5, nine successful jobs, three distributions, seventeen tests, Ghostscript 10.08.0 fix" width="100%">
 </p>
 
 ## What it does not do

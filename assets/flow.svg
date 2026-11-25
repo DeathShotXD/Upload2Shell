@@ -1,150 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
-  <title id="u2s-t">Upload2Shell attack flow</title>
-  <desc id="u2s-d">Anonymous IPP job, CUPS filter chain, Ghostscript Type 1 use-after-free, path control bypass, command execution as lp.</desc>
-  <defs>
-    <linearGradient id="f-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0C141B"/>
-      <stop offset="0.55" stop-color="#060B10"/>
-      <stop offset="1" stop-color="#04070A"/>
-    </linearGradient>
-    <radialGradient id="f-teal" cx="0.12" cy="1.05" r="0.95">
-      <stop offset="0" stop-color="#2EE6D2" stop-opacity="0.17"/>
-      <stop offset="0.45" stop-color="#149E8E" stop-opacity="0.06"/>
-      <stop offset="1" stop-color="#149E8E" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="f-warm" cx="0.88" cy="-0.1" r="0.85">
-      <stop offset="0" stop-color="#F8C24A" stop-opacity="0.11"/>
-      <stop offset="0.5" stop-color="#F5871F" stop-opacity="0.035"/>
-      <stop offset="1" stop-color="#F5871F" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="f-vig" cx="0.5" cy="0.45" r="0.78">
-      <stop offset="0" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="0.72" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="1" stop-color="#02040A" stop-opacity="0.55"/>
-    </radialGradient>
-    <linearGradient id="f-orange" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFDF9E"/>
-      <stop offset="0.42" stop-color="#F8A03C"/>
-      <stop offset="0.75" stop-color="#F5871F"/>
-      <stop offset="1" stop-color="#C05E0C"/>
-    </linearGradient>
-    <linearGradient id="f-cyan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#C8FFF6"/>
-      <stop offset="1" stop-color="#2EE6D2"/>
-    </linearGradient>
-    <linearGradient id="f-cream" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFF8E4"/>
-      <stop offset="1" stop-color="#EBD9AE"/>
-    </linearGradient>
-    <pattern id="f-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#10242C" stroke-width="1"/>
-    </pattern>
-    <pattern id="f-scan" width="4" height="3" patternUnits="userSpaceOnUse">
-      <rect width="4" height="1" fill="#000000" opacity="0.14"/>
-    </pattern>
-    <filter id="f-glowO" x="-30%" y="-60%" width="160%" height="220%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="f-glowC" x="-40%" y="-80%" width="180%" height="260%">
-      <feGaussianBlur stdDeviation="3" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
-  <rect width="1200" height="380" fill="url(#f-bg)"/>
-  <rect width="1200" height="380" fill="url(#f-teal)"/>
-  <rect width="1200" height="380" fill="url(#f-warm)"/>
-  <rect width="1200" height="380" fill="url(#f-grid)" opacity="0.5"/>
-
-  <g font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace">
-    <g filter="url(#f-glowO)" font-weight="bold">
-      <text x="38" y="64" font-size="42" letter-spacing="3" fill="#1B0B02">ATTACK FLOW</text>
-      <text x="38" y="61" font-size="42" letter-spacing="3" fill="url(#f-orange)" stroke="#8A4409" stroke-width="1">ATTACK FLOW</text>
-      <text x="38" y="60" font-size="42" letter-spacing="3" fill="none" stroke="#FFE9B0" stroke-opacity="0.4" stroke-width="0.7">ATTACK FLOW</text>
-    </g>
-    <text x="372" y="60" font-size="15" letter-spacing="2" fill="#7C93A0">NO CREDENTIALS</text>
-    <rect x="530" y="49" width="5" height="5" fill="#F5871F"/>
-    <text x="548" y="60" font-size="15" letter-spacing="2" fill="#7C93A0">NO INTERACTION</text>
-    <g filter="url(#f-glowC)">
-      <rect x="1046" y="30" width="118" height="36" rx="6" fill="#071319" stroke="#2EE6D2" stroke-opacity="0.75"/>
-      <text x="1062" y="53" font-size="14" font-weight="bold" fill="url(#f-cyan)">uid=7(lp)</text>
-      <rect x="1148" y="41" width="7" height="13" fill="#2EE6D2"/>
-    </g>
-
-    <!-- panel 1 -->
-    <g transform="translate(40,112)">
-      <rect width="252" height="180" rx="10" fill="#071319" stroke="#1E3A42"/>
-      <rect x="1" y="1" width="250" height="3" rx="1" fill="#2EE6D2"/>
-      <text x="238" y="62" font-size="66" font-weight="bold" text-anchor="end" fill="#F5871F" opacity="0.13">01</text>
-      <rect x="14" y="20" width="9" height="9" fill="#2EE6D2"/>
-      <text x="32" y="30" font-size="12" letter-spacing="3" fill="#9BF4E8">DELIVER</text>
-      <text x="18" y="72" font-size="23" font-weight="bold" fill="url(#f-cream)">IPP Print-Job</text>
-      <text x="18" y="104" font-size="12" fill="#9BF4E8">POST /printers/u2s</text>
-      <text x="18" y="126" font-size="12" fill="#7C93A0">Content-Type: application/ipp</text>
-      <rect x="18" y="146" width="86" height="22" rx="4" fill="#0A1A20" stroke="#149E8E" stroke-opacity="0.7"/>
-      <text x="28" y="161" font-size="11" font-weight="bold" fill="#2EE6D2">anonymous</text>
-      <rect x="238" y="166" width="6" height="6" fill="#2EE6D2" opacity="0.7"/>
-    </g>
-    <!-- panel 2 -->
-    <g transform="translate(336,112)">
-      <rect width="252" height="180" rx="10" fill="#071319" stroke="#3A2A14"/>
-      <rect x="1" y="1" width="250" height="3" rx="1" fill="#F5871F"/>
-      <text x="238" y="62" font-size="66" font-weight="bold" text-anchor="end" fill="#F5871F" opacity="0.13">02</text>
-      <rect x="14" y="20" width="9" height="9" fill="#F5871F"/>
-      <text x="32" y="30" font-size="12" letter-spacing="3" fill="#F8C24A">FILTER</text>
-      <text x="18" y="72" font-size="23" font-weight="bold" fill="url(#f-cream)">gstopdf</text>
-      <text x="18" y="104" font-size="12" fill="#F8C24A">-&gt; gstoraster</text>
-      <text x="18" y="126" font-size="12" fill="#7C93A0">libcupsfilters 2.0</text>
-      <rect x="18" y="146" width="120" height="22" rx="4" fill="#0A1A20" stroke="#F5871F" stroke-opacity="0.55"/>
-      <text x="28" y="161" font-size="11" font-weight="bold" fill="#F8C24A">gs -dSAFER</text>
-      <rect x="238" y="166" width="6" height="6" fill="#F5871F" opacity="0.7"/>
-    </g>
-    <!-- panel 3 -->
-    <g transform="translate(632,112)">
-      <rect width="252" height="180" rx="10" fill="#0A1014" stroke="#3A1A20"/>
-      <rect x="1" y="1" width="250" height="3" rx="1" fill="#F26D7E"/>
-      <text x="238" y="62" font-size="66" font-weight="bold" text-anchor="end" fill="#F26D7E" opacity="0.13">03</text>
-      <rect x="14" y="20" width="9" height="9" fill="#F26D7E"/>
-      <text x="32" y="30" font-size="12" letter-spacing="3" fill="#F5A2AE">CORRUPT</text>
-      <text x="18" y="72" font-size="23" font-weight="bold" fill="url(#f-cream)">Type 1 UAF</text>
-      <text x="18" y="104" font-size="12" fill="#F5A2AE">dangling ref</text>
-      <text x="18" y="126" font-size="12" fill="#7C93A0">forged string view</text>
-      <rect x="18" y="146" width="216" height="22" rx="4" fill="#0A1A20" stroke="#F26D7E" stroke-opacity="0.55"/>
-      <text x="28" y="161" font-size="11" font-weight="bold" fill="#7EE787">path_control_active = 0</text>
-      <rect x="238" y="166" width="6" height="6" fill="#F26D7E" opacity="0.7"/>
-    </g>
-    <!-- panel 4 -->
-    <g transform="translate(928,112)" filter="url(#f-glowC)">
-      <rect width="232" height="180" rx="10" fill="#08140C" stroke="#2E5A34"/>
-      <rect x="1" y="1" width="230" height="3" rx="1" fill="#7EE787"/>
-      <text x="218" y="62" font-size="66" font-weight="bold" text-anchor="end" fill="#7EE787" opacity="0.14">04</text>
-      <rect x="14" y="20" width="9" height="9" fill="#7EE787"/>
-      <text x="32" y="30" font-size="12" letter-spacing="3" fill="#A7F0B0">EXECUTE</text>
-      <text x="18" y="72" font-size="23" font-weight="bold" fill="url(#f-cream)">%pipe%id</text>
-      <text x="18" y="104" font-size="12" fill="#A7F0B0">uid=7(lp)</text>
-      <text x="18" y="126" font-size="12" fill="#7C93A0">command as the filter user</text>
-      <rect x="18" y="146" width="196" height="22" rx="4" fill="#0A1A20" stroke="#7EE787" stroke-opacity="0.6"/>
-      <text x="28" y="161" font-size="11" font-weight="bold" fill="#A7F0B0">no creds needed</text>
-      <rect x="218" y="166" width="6" height="6" fill="#7EE787" opacity="0.7"/>
-    </g>
-
-    <!-- pixel arrows -->
-    <g>
-      <rect x="294" y="198" width="30" height="8" fill="#2EE6D2" opacity="0.85"/>
-      <path d="M322 190 L334 202 L322 214 z" fill="#2EE6D2"/>
-      <rect x="590" y="198" width="30" height="8" fill="#F5871F" opacity="0.9"/>
-      <path d="M618 190 L630 202 L618 214 z" fill="#F5871F"/>
-      <rect x="886" y="198" width="30" height="8" fill="#F26D7E" opacity="0.9"/>
-      <path d="M914 190 L926 202 L914 214 z" fill="#F26D7E"/>
-    </g>
-
-    <line x1="40" y1="322" x2="1160" y2="322" stroke="#1E3A42"/>
-    <rect x="40" y="342" width="9" height="9" fill="#7EE787"/>
-    <text x="60" y="351" font-size="13" fill="#A7F0B0">deployed: 26.8.3 / 10.02.1 / 9.55.0  vulnerable</text>
-    <rect x="486" y="342" width="9" height="9" fill="#F26D7E"/>
-    <text x="506" y="351" font-size="13" fill="#F5A2AE">fixed: 10.08.0 / +deb13u2 / 7.10 / 5.15  dangling lookup fails</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">Upload2Shell attack path</title>
+<desc id="desc">An anonymous IPP print job enters a CUPS queue, passes through Ghostscript filters, triggers a Type 1 font loader use-after-free and path-control bypass, then executes as the lp filter account.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#07131c"/><stop offset="1" stop-color="#03080e"/></linearGradient>
+ <linearGradient id="amber" x2="0" y2="1"><stop stop-color="#ffe8a6"/><stop offset=".45" stop-color="#ff9c24"/><stop offset="1" stop-color="#c94c0b"/></linearGradient>
+ <linearGradient id="cyan" x2="0" y2="1"><stop stop-color="#c9fff5"/><stop offset="1" stop-color="#19d9c2"/></linearGradient>
+ <linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fff2d4"/><stop offset="1" stop-color="#d9c39a"/></linearGradient>
+ <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#17313a" stroke-width="1" opacity=".48"/></pattern>
+ <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#20d9c5" opacity=".2"/></pattern>
+ <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="420" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="420" rx="18" fill="url(#grid)"/>
+<path d="M0 330H1200" stroke="#19323a"/>
+<path d="M0 0H1200V8H0Z" fill="#ff9226"/>
+<g font-family="DejaVu Sans Mono,monospace">
+ <text x="44" y="55" fill="#ffe6b0" font-size="27" font-weight="bold" letter-spacing="3">THE PRINT PATH</text>
+ <text x="45" y="82" fill="#6f929b" font-size="13" letter-spacing="2">ANONYMOUS IPP / CUPS FILTERS / GHOSTSCRIPT</text>
+ <g transform="translate(950 31)">
+  <rect width="204" height="43" rx="6" fill="#071b20" stroke="#16cbb8"/>
+  <circle cx="17" cy="21" r="4" fill="#23e0c7"/>
+  <text x="31" y="27" fill="#8ef9e8" font-size="15">LAB REPRODUCTION</text>
+ </g>
+ <!-- path rail -->
+ <path d="M155 197H1042" stroke="#24434a" stroke-width="5" stroke-dasharray="5 9"/>
+ <path d="M155 197H1042" stroke="#19d9c2" stroke-width="1.5" opacity=".65"/>
+ <!-- step 1: paper -->
+ <g transform="translate(55 120)">
+  <rect x="0" y="0" width="206" height="174" rx="10" fill="#0a1b23" stroke="#1a7370"/>
+  <path d="M18 17H188" stroke="#1edbc5" stroke-width="3"/>
+  <g transform="translate(68 32)">
+   <path d="M0 0H68L83 15V68H0Z" fill="url(#paper)" stroke="#ffad42" stroke-width="2"/>
+   <path d="M68 0V15H83" fill="none" stroke="#b76a24" stroke-width="2"/>
+   <path d="M12 24H64M12 34H70M12 44H59M12 54H67" stroke="#6a6659" stroke-width="3"/>
+   <path d="M-9 74H92" stroke="#20d9c5" stroke-width="3"/>
   </g>
-  <rect width="1200" height="380" fill="url(#f-scan)"/>
-  <rect width="1200" height="380" fill="url(#f-vig)"/>
+  <text x="18" y="130" fill="#fff0cf" font-size="18" font-weight="bold">IPP Print-Job</text>
+  <text x="18" y="153" fill="#70e8d8" font-size="12">anonymous / no credentials</text>
+  <circle cx="103" cy="77" r="6" fill="#20d9c5" filter="url(#soft)"/>
+ </g>
+ <!-- step 2: printer / cups -->
+ <g transform="translate(340 120)">
+  <rect width="206" height="174" rx="10" fill="#111b20" stroke="#9b5c21"/>
+  <path d="M18 17H188" stroke="#f58a20" stroke-width="3"/>
+  <g transform="translate(48 38)">
+   <path d="M20 0H91V28H20Z" fill="url(#paper)" stroke="#ffad42" stroke-width="2"/>
+   <path d="M8 24H102Q112 24 112 36V75H0V36Q0 24 8 24Z" fill="#29343b" stroke="#f18a26" stroke-width="3"/>
+   <path d="M18 43H94V64H18Z" fill="#07121a" stroke="#53636a"/>
+   <path d="M27 49H85" stroke="#20d9c5" stroke-width="3"/>
+   <circle cx="91" cy="34" r="4" fill="#ff9b25"/>
+   <path d="M20 75H91V88H20Z" fill="#17242b" stroke="#69747a"/>
+  </g>
+  <text x="18" y="130" fill="#fff0cf" font-size="18" font-weight="bold">CUPS filters</text>
+  <text x="18" y="153" fill="#f4b65b" font-size="12">gstopdf -> gstoraster</text>
+ </g>
+ <!-- step 3: ghostscript core -->
+ <g transform="translate(625 120)">
+  <rect width="206" height="174" rx="10" fill="#15171c" stroke="#a54b43"/>
+  <path d="M18 17H188" stroke="#ef766e" stroke-width="3"/>
+  <g transform="translate(72 32)">
+   <circle cx="31" cy="37" r="34" fill="#0a2529" stroke="#18d5c0" stroke-width="3"/>
+   <circle cx="31" cy="37" r="23" fill="none" stroke="#e9872b" stroke-width="3" stroke-dasharray="5 4"/>
+   <path d="M15 21L28 34L18 45L32 55L46 40L35 29L47 17" fill="none" stroke="#fff0cf" stroke-width="4" stroke-linecap="square"/>
+   <path d="M50 5L61 -5M57 20L71 17M57 53L69 62" stroke="#ff9226" stroke-width="3"/>
+  </g>
+  <text x="18" y="130" fill="#fff0cf" font-size="18" font-weight="bold">Ghostscript UAF</text>
+  <text x="18" y="153" fill="#f39a92" font-size="11">Type 1 UAF / -dSAFER bypass</text>
+ </g>
+ <!-- step 4: terminal -->
+ <g transform="translate(910 120)">
+  <rect width="235" height="174" rx="10" fill="#0b1c18" stroke="#4c9d5c"/>
+  <path d="M18 17H217" stroke="#8fe78f" stroke-width="3"/>
+  <g transform="translate(47 42)">
+   <rect width="141" height="62" rx="5" fill="#030a0d" stroke="#20d9c5" stroke-width="2"/>
+   <path d="M14 21L25 31L14 41M34 42H65" fill="none" stroke="#8df2b7" stroke-width="4" stroke-linecap="square"/>
+   <rect x="73" y="36" width="7" height="10" fill="#ffe7ae"/>
+   <circle cx="127" cy="12" r="3" fill="#f68c25"/>
+  </g>
+  <text x="18" y="130" fill="#fff0cf" font-size="18" font-weight="bold">Command execution</text>
+  <text x="18" y="153" fill="#8fe7a0" font-size="13">uid=7(lp)</text>
+ </g>
+ <!-- connectors -->
+ <g fill="#ff9a27">
+  <path d="M270 188H324L324 180L339 197L324 214V206H270Z"/>
+  <path d="M555 188H609L609 180L624 197L609 214V206H555Z"/>
+ </g>
+ <path d="M840 197H894L894 189L909 197L894 205V197" fill="#19d9c2"/>
+ <g fill="#07131c" stroke="#f8a13b" stroke-width="2">
+  <circle cx="270" cy="197" r="7"/><circle cx="555" cy="197" r="7"/><circle cx="840" cy="197" r="7"/>
+ </g>
+ <text x="55" y="365" fill="#7f9ca2" font-size="13" letter-spacing="1.2">THE SECURITY BOUNDARY BREAKS INSIDE THE INTERPRETER</text>
+ <text x="55" y="393" fill="#f3c879" font-size="14">path_control_active -> 0</text>
+ <text x="1145" y="393" fill="#1edbc5" font-size="14" text-anchor="end">CVE-2026-125396</text>
+</g>
+<rect x="1" y="1" width="1198" height="418" rx="17" fill="none" stroke="#25414a"/>
 </svg>

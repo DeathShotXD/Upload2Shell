@@ -1,135 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
-  <title id="u2s-t">Upload2Shell verified facts</title>
-  <desc id="u2s-d">CVE-2026-125396, CVSS 8.5, zero click, CUPS, Ghostscript, A/B lab, Docker, first PoC, fixed in 10.08.0, Debian 13, Ubuntu 22 and 24.</desc>
-  <defs>
-    <linearGradient id="s-bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0C141B"/>
-      <stop offset="0.55" stop-color="#060B10"/>
-      <stop offset="1" stop-color="#04070A"/>
-    </linearGradient>
-    <radialGradient id="s-teal" cx="0.1" cy="1.05" r="0.9">
-      <stop offset="0" stop-color="#2EE6D2" stop-opacity="0.15"/>
-      <stop offset="0.5" stop-color="#149E8E" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#149E8E" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="s-warm" cx="0.9" cy="-0.1" r="0.85">
-      <stop offset="0" stop-color="#F8C24A" stop-opacity="0.10"/>
-      <stop offset="1" stop-color="#F5871F" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="s-vig" cx="0.5" cy="0.45" r="0.8">
-      <stop offset="0" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="0.72" stop-color="#02040A" stop-opacity="0"/>
-      <stop offset="1" stop-color="#02040A" stop-opacity="0.55"/>
-    </radialGradient>
-    <linearGradient id="s-orange" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFDF9E"/>
-      <stop offset="0.42" stop-color="#F8A03C"/>
-      <stop offset="0.75" stop-color="#F5871F"/>
-      <stop offset="1" stop-color="#C05E0C"/>
-    </linearGradient>
-    <linearGradient id="s-rose" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFD3DA"/>
-      <stop offset="0.5" stop-color="#F58BA0"/>
-      <stop offset="1" stop-color="#D14B60"/>
-    </linearGradient>
-    <linearGradient id="s-cyan" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#C8FFF6"/>
-      <stop offset="1" stop-color="#2EE6D2"/>
-    </linearGradient>
-    <linearGradient id="s-green" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#DDFFDF"/>
-      <stop offset="1" stop-color="#7EE787"/>
-    </linearGradient>
-    <pattern id="s-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#10242C" stroke-width="1"/>
-    </pattern>
-    <pattern id="s-dither" width="6" height="6" patternUnits="userSpaceOnUse">
-      <rect width="3" height="3" fill="#2EE6D2" opacity="0.05"/>
-      <rect x="3" y="3" width="3" height="3" fill="#2EE6D2" opacity="0.05"/>
-    </pattern>
-    <pattern id="s-scan" width="4" height="3" patternUnits="userSpaceOnUse">
-      <rect width="4" height="1" fill="#000000" opacity="0.14"/>
-    </pattern>
-    <filter id="s-glowO" x="-30%" y="-60%" width="160%" height="220%">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
-  <rect width="1200" height="280" fill="url(#s-bg)"/>
-  <rect width="1200" height="280" fill="url(#s-teal)"/>
-  <rect width="1200" height="280" fill="url(#s-warm)"/>
-  <rect width="1200" height="280" fill="url(#s-grid)" opacity="0.5"/>
-  <rect x="40" y="200" width="230" height="70" fill="url(#s-dither)"/>
-
-  <g font-family="'DejaVu Sans Mono','Menlo','Consolas',monospace" font-size="12.5" font-weight="bold">
-    <!-- row 1 -->
-    <g transform="translate(40,46)" filter="url(#s-glowO)">
-      <rect width="150" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-width="1.5"/>
-      <rect x="14" y="19" width="8" height="8" fill="url(#s-orange)"/>
-      <text x="32" y="29" fill="url(#s-orange)">CVE-2026-125396</text>
-    </g>
-    <g transform="translate(206,46)" filter="url(#s-glowO)">
-      <rect width="132" height="46" rx="8" fill="#140A0E" stroke="#8A2833" stroke-width="1.5"/>
-      <rect x="14" y="19" width="8" height="8" fill="url(#s-rose)"/>
-      <text x="32" y="29" fill="url(#s-rose)">CVSS 8.5</text>
-    </g>
-    <g transform="translate(354,46)">
-      <rect width="120" height="46" rx="8" fill="#0A1A20" stroke="#149E8E" stroke-opacity="0.8"/>
-      <rect x="14" y="19" width="8" height="8" fill="url(#s-cyan)"/>
-      <text x="32" y="29" fill="url(#s-cyan)">ZERO CLICK</text>
-    </g>
-    <g transform="translate(490,46)">
-      <rect width="118" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">CUPS / IPP</text>
-    </g>
-    <g transform="translate(624,46)">
-      <rect width="134" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">GHOSTSCRIPT</text>
-    </g>
-    <g transform="translate(774,46)">
-      <rect width="102" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-opacity="0.8"/>
-      <text x="20" y="29" fill="#F8C24A">A/B LAB</text>
-    </g>
-    <g transform="translate(892,46)">
-      <rect width="102" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">DOCKER</text>
-    </g>
-    <g transform="translate(1010,46)">
-      <rect width="150" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">3 DISTROS</text>
-    </g>
-
-    <!-- row 2 -->
-    <g transform="translate(40,110)" filter="url(#s-glowO)">
-      <rect width="130" height="46" rx="8" fill="#140C04" stroke="#8A4409" stroke-width="1.5"/>
-      <rect x="14" y="19" width="8" height="8" fill="url(#s-orange)"/>
-      <text x="32" y="29" fill="url(#s-orange)">FIRST POC</text>
-    </g>
-    <g transform="translate(186,110)" filter="url(#s-glowO)">
-      <rect width="182" height="46" rx="8" fill="#08140C" stroke="#2E5A34" stroke-width="1.5"/>
-      <rect x="14" y="19" width="8" height="8" fill="url(#s-green)"/>
-      <text x="32" y="29" fill="url(#s-green)">FIXED IN 10.08.0</text>
-    </g>
-    <g transform="translate(384,110)">
-      <rect width="126" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">DEBIAN 13</text>
-    </g>
-    <g transform="translate(526,110)">
-      <rect width="150" height="46" rx="8" fill="#071319" stroke="#1E3A42"/>
-      <text x="20" y="29" fill="#A9BEC8">UBUNTU 22/24</text>
-    </g>
-    <g transform="translate(692,110)">
-      <rect width="468" height="46" rx="8" fill="#0A1014" stroke="#3A1A20" stroke-opacity="0.9"/>
-      <rect x="14" y="19" width="8" height="8" fill="#F26D7E"/>
-      <text x="32" y="29" fill="#F5A2AE">LOCAL LAB ONLY - NEVER A LIVE TARGET</text>
-    </g>
-
-    <line x1="40" y1="196" x2="1160" y2="196" stroke="#1E3A42"/>
-    <text x="40" y="232" font-size="12" font-weight="normal" fill="#7C93A0">independent chain - re-derived offsets from dbgsym - verified 2026-11-24 - not the discovery</text>
-    <rect x="1136" y="220" width="8" height="8" fill="url(#s-cyan)"/>
-    <rect x="1148" y="224" width="4" height="4" fill="url(#s-cyan)" opacity="0.6"/>
-  </g>
-  <rect width="1200" height="280" fill="url(#s-scan)"/>
-  <rect width="1200" height="280" fill="url(#s-vig)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 190" role="img" aria-labelledby="title desc">
+<title id="title">Upload2Shell project facts</title>
+<desc id="desc">CVE-2026-125396, CVSS 8.5 high, nine of nine lab jobs, three Linux distributions, seventeen unit tests, and fixed in Ghostscript 10.08.0.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#08151d"/><stop offset="1" stop-color="#03090e"/></linearGradient>
+ <linearGradient id="orange" x2="1"><stop stop-color="#ffdf9e"/><stop offset="1" stop-color="#f5821f"/></linearGradient>
+ <linearGradient id="cyan" x2="1"><stop stop-color="#c6fff3"/><stop offset="1" stop-color="#20d9c3"/></linearGradient>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#183039" opacity=".4"/></pattern>
+</defs>
+<rect width="1200" height="190" rx="14" fill="url(#bg)"/><rect width="1200" height="190" rx="14" fill="url(#grid)"/>
+<path d="M0 0H1200V6H0Z" fill="#ff9226"/>
+<g font-family="DejaVu Sans Mono,monospace">
+ <g transform="translate(34 30)">
+  <text x="0" y="18" fill="#78969e" font-size="11" letter-spacing="2">VULNERABILITY</text>
+  <text x="0" y="54" fill="url(#orange)" font-size="26" font-weight="bold">CVE-2026-125396</text>
+  <text x="0" y="82" fill="#f2d6a0" font-size="14">CVSS 8.5 / HIGH</text>
+ </g>
+ <path d="M300 28V145" stroke="#27434a"/>
+ <g transform="translate(337 30)">
+  <text x="0" y="18" fill="#78969e" font-size="11" letter-spacing="2">LAB CONFIRMATION</text>
+  <text x="0" y="62" fill="url(#cyan)" font-size="40" font-weight="bold">9 / 9</text>
+  <text x="0" y="86" fill="#a8c2c4" font-size="13">successful jobs</text>
+ </g>
+ <path d="M510 28V145" stroke="#27434a"/>
+ <g transform="translate(557 30)">
+  <text x="0" y="18" fill="#78969e" font-size="11" letter-spacing="2">PLATFORM COVERAGE</text>
+  <text x="0" y="62" fill="url(#orange)" font-size="40" font-weight="bold">03</text>
+  <text x="0" y="86" fill="#a8c2c4" font-size="13">Debian + Ubuntu builds</text>
+ </g>
+ <path d="M760 28V145" stroke="#27434a"/>
+ <g transform="translate(797 30)">
+  <text x="0" y="18" fill="#78969e" font-size="11" letter-spacing="2">AUTOMATED TESTS</text>
+  <text x="0" y="62" fill="url(#cyan)" font-size="40" font-weight="bold">17</text>
+  <text x="0" y="86" fill="#a8c2c4" font-size="13">unit tests / Python 3.9-3.13</text>
+ </g>
+ <path d="M1000 28V145" stroke="#27434a"/>
+ <g transform="translate(1035 30)">
+  <text x="0" y="18" fill="#78969e" font-size="11" letter-spacing="2">UPSTREAM FIX</text>
+  <text x="0" y="58" fill="#a6efa9" font-size="25" font-weight="bold">10.08.0</text>
+  <text x="0" y="86" fill="#a8c2c4" font-size="13">Ghostscript</text>
+ </g>
+ <path d="M34 145H1166" stroke="#29464d"/>
+ <text x="34" y="170" fill="#7e9ca2" font-size="11" letter-spacing-="1">INDEPENDENT REPRODUCTION / LOCAL DOCKER LAB / ORIGINAL DISCOVERY CREDITED TO PAULOS YIBELO / PWN.AI</text>
+</g>
+<rect x="1" y="1" width="1198" height="188" rx="13" fill="none" stroke="#29434a"/>
 </svg>

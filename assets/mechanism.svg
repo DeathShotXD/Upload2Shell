@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
+<title id="title">Ghostscript Type 1 font-loader vulnerability mechanism</title>
+<desc id="desc">The local reproducer stages a Type 1 font, retains a stale reference after restore, locates the overlapping reference, forges a string view, walks the device and memory context, and clears path_control_active before the pipe command stage.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#08151e"/><stop offset="1" stop-color="#03090f"/></linearGradient>
+ <linearGradient id="warm" x2="1"><stop stop-color="#ffe4a4"/><stop offset="1" stop-color="#f28a22"/></linearGradient>
+ <linearGradient id="teal" x2="1"><stop stop-color="#c5fff2"/><stop offset="1" stop-color="#19d8c1"/></linearGradient>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#19313a" opacity=".38"/></pattern>
+</defs>
+<rect width="1200" height="330" rx="15" fill="url(#bg)"/><rect width="1200" height="330" rx="15" fill="url(#grid)"/>
+<path d="M0 0H1200V6H0Z" fill="#ff9226"/>
+<g font-family="DejaVu Sans Mono,monospace">
+ <text x="40" y="48" fill="#ffe7b4" font-size="24" font-weight="bold" letter-spacing="2">INSIDE THE INTERPRETER</text>
+ <text x="42" y="72" fill="#78969e" font-size="12" letter-spacing="1.4">TYPE 1 FONT LOADER / USE-AFTER-FREE / PATH-CONTROL STATE</text>
+ <!-- step 1 -->
+ <g transform="translate(38 102)">
+  <rect width="202" height="164" rx="7" fill="#0b1c23" stroke="#98632c"/>
+  <text x="16" y="27" fill="#f6b95e" font-size="11" letter-spacing="1.5">01 / STAGE</text>
+  <path d="M68 47H123L139 63V105H68Z" fill="#f3dfb7" stroke="#f4a23b" stroke-width="2"/>
+  <path d="M123 47V63H139M78 72H127M78 82H129M78 92H116" fill="none" stroke="#786b56" stroke-width="3"/>
+  <text x="16" y="133" fill="#fff0d1" font-size="13" font-weight="bold">Type 1 font</text>
+  <text x="16" y="151" fill="#a9c2c3" font-size="11">placed in %ram%</text>
+ </g>
+ <!-- step 2 -->
+ <g transform="translate(278 102)">
+  <rect width="202" height="164" rx="7" fill="#101a20" stroke="#a24b4b"/>
+  <text x="16" y="27" fill="#f29a9a" font-size="11" letter-spacing="1.5">02 / STALE REF</text>
+  <path d="M70 55H128V100H70Z" fill="#192e34" stroke="#20d9c5" stroke-width="2"/>
+  <path d="M82 65L116 90M116 65L82 90" stroke="#ef7b79" stroke-width="4"/>
+  <path d="M99 45V55M99 100V112" stroke="#ef7b79" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="16" y="133" fill="#fff0d1" font-size="13" font-weight="bold">restore()</text>
+  <text x="16" y="151" fill="#f1a0a0" font-size="11">reference survives free</text>
+ </g>
+ <!-- step 3 -->
+ <g transform="translate(518 102)">
+  <rect width="202" height="164" rx="7" fill="#0b1c23" stroke="#1d817a"/>
+  <text x="16" y="27" fill="#7de7d8" font-size="11" letter-spacing="1.5">03 / RECLAIM</text>
+  <g transform="translate(30 50)" fill="#1c4d4c" stroke="#29d8c4">
+   <rect x="0" y="0" width="23" height="23"/><rect x="29" y="0" width="23" height="23"/><rect x="58" y="0" width="23" height="23"/><rect x="87" y="0" width="23" height="23"/>
+   <rect x="0" y="29" width="23" height="23"/><rect x="29" y="29" width="23" height="23"/><rect x="58" y="29" width="23" height="23"/><rect x="87" y="29" width="23" height="23"/>
+  </g>
+  <path d="M89 77L103 91L126 64" fill="none" stroke="#ffb04a" stroke-width="4"/>
+  <text x="16" y="133" fill="#fff0d1" font-size="13" font-weight="bold">heap overlap</text>
+  <text x="16" y="151" fill="#8fe9dc" font-size="11">stale ref located</text>
+ </g>
+ <!-- step 4 -->
+ <g transform="translate(758 102)">
+  <rect width="202" height="164" rx="7" fill="#101a20" stroke="#9b632b"/>
+  <text x="16" y="27" fill="#f6b95e" font-size="11" letter-spacing="1.5">04 / FORGE + WALK</text>
+  <g transform="translate(35 53)">
+   <rect x="0" y="0" width="122" height="48" rx="4" fill="#071116" stroke="#e99a36"/>
+   <text x="61" y="19" text-anchor="middle" fill="#f8d9a0" font-size="10">rsize / value</text>
+   <path d="M18 31H104" stroke="#20d9c5" stroke-width="2"/>
+   <path d="M22 39H42M52 39H72H82 39H100" stroke="#20d9c5" stroke-width="2"/>
+  </g>
+  <text x="16" y="133" fill="#fff0d1" font-size="13" font-weight="bold">string view</text>
+  <text x="16" y="151" fill="#e6bd7e" font-size="11">device -> memory context</text>
+ </g>
+ <!-- step 5 -->
+ <g transform="translate(998 102)">
+  <rect width="164" height="164" rx="7" fill="#0b1c18" stroke="#4a985d"/>
+  <text x="14" y="27" fill="#9de7a2" font-size="11" letter-spacing="1.2">05 / FLIP STATE</text>
+  <rect x="18" y="51" width="128" height="48" rx="4" fill="#030a0d" stroke="#1bd9c4" stroke-width="2"/>
+  <text x="82" y="70" text-anchor="middle" fill="#f0d9a9" font-size="9">path_control_active</text>
+  <text x="82" y="89" text-anchor="middle" fill="#91f1a0" font-size="17" font-weight="bold">0</text>
+  <text x="14" y="133" fill="#fff0d1" font-size="12" font-weight="bold">path control off</text>
+  <text x="14" y="151" fill="#9de7a2" font-size="11">then %pipe stage</text>
+ </g>
+ <!-- rails -->
+ <g fill="#f6a23b">
+  <path d="M245 178H270L270 171L280 184L270 197V190H245Z"/>
+  <path d="M485 178H510L510 171L520 184L510 197V190H485Z"/>
+  <path d="M725 178H750L750 171L760 184L750 197V190H725Z"/>
+ </g>
+ <path d="M965 184H990" stroke="#1bd9c4" stroke-width="3" stroke-dasharray="4 4"/>
+ <text x="40" y="302" fill="#8ca6aa" font-size="12" letter-spacing="1">REPRODUCER WALKTHROUGH / LOCAL LAB / NOT THE ORIGINAL DISCOVERY</text>
+ <text x="1160" y="302" text-anchor="end" fill="#f5bd68" font-size="12">CVE-2026-125396</text>
+</g>
+<rect x="1" y="1" width="1198" height="328" rx="14" fill="none" stroke="#29434a"/>
+</svg>
