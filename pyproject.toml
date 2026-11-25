@@ -1,7 +1,7 @@
 [project]
 name = "upload2shell"
 version = "0.2.0"
-description = "CVE-2026-125396 zero-click RCE chain for Debian 13 and Ubuntu 22.04/24.04 via CUPS and Ghostscript"
+description = "Local reproducer for CVE-2026-125396: a zero-click IPP to Ghostscript to shell chain for Debian 13 and Ubuntu 22.04/24.04"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }

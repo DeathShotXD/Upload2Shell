@@ -1,43 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" role="img" aria-labelledby="title desc">
-  <title id="title">Upload2Shell lab matrix</title>
-  <desc id="desc">Debian 13, Ubuntu 24.04 and Ubuntu 22.04 all execute the command as uid=7(lp).</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
+  <title id="u2s-t">Upload2Shell lab matrix</title>
+  <desc id="u2s-d">Debian 13, Ubuntu 24.04 and Ubuntu 22.04 each return uid=7(lp); fixed builds fail at the dangling lookup.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#05090c"/>
-      <stop offset="1" stop-color="#08131a"/>
+    <linearGradient id="l-ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#03070B"/>
+      <stop offset="1" stop-color="#06121A"/>
     </linearGradient>
+    <pattern id="l-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#0E2229" stroke-width="1"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="380" fill="url(#bg)"/>
-  <text x="40" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#7f95a8" letter-spacing="3">REAL LAB MATRIX / ANONYMOUS IPP / 9 OF 9</text>
+  <rect width="1200" height="400" fill="url(#l-ink)"/>
+  <rect width="1200" height="400" fill="url(#l-grid)" opacity="0.4"/>
 
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12">
-    <text x="40" y="80" fill="#7f95a8">TARGET</text>
-    <text x="300" y="80" fill="#7f95a8">GHOSTSCRIPT</text>
-    <text x="560" y="80" fill="#7f95a8">CHAIN</text>
-    <text x="900" y="80" fill="#7f95a8">RESULT</text>
-    <line x1="40" y1="94" x2="1160" y2="94" stroke="#1d2f39"/>
+  <text x="40" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7C93A0" letter-spacing="3">REAL LAB MATRIX / ANONYMOUS IPP / 9 OF 9</text>
 
-    <text x="40" y="132" fill="#e9f2f5">Debian 13</text>
-    <text x="300" y="132" fill="#b9cbd6">10.05.1~dfsg-1+deb13u1</text>
-    <text x="560" y="132" fill="#a7f3e4">pdevice → psi_device_ref</text>
-    <text x="900" y="132" fill="#a7f3e4">3/3 uid=7(lp)</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5">
+    <!-- header row -->
+    <rect x="40" y="58" width="1120" height="34" rx="6" fill="#0C2027" stroke="#1E3A42"/>
+    <text x="60" y="80" fill="#9BF4E8">TARGET</text>
+    <text x="300" y="80" fill="#9BF4E8">GHOSTSCRIPT</text>
+    <text x="600" y="80" fill="#9BF4E8">CHAIN</text>
+    <text x="930" y="80" fill="#9BF4E8">RESULT</text>
 
-    <text x="40" y="180" fill="#e9f2f5">Ubuntu 24.04</text>
-    <text x="300" y="180" fill="#b9cbd6">10.02.1~dfsg1-0ubuntu7.9</text>
-    <text x="560" y="180" fill="#a7f3e4">pdevice → psi_device_ref</text>
-    <text x="900" y="180" fill="#a7f3e4">3/3 uid=7(lp)</text>
+    <!-- row 1 -->
+    <rect x="40" y="100" width="1120" height="52" rx="6" fill="#071319" stroke="#1E3A42" stroke-opacity="0.7"/>
+    <rect x="40" y="100" width="4" height="52" fill="#7EE787"/>
+    <text x="60" y="132" fill="#F3E6C8">Debian 13</text>
+    <text x="300" y="132" fill="#A9BEC8">10.05.1~dfsg-1+deb13u1</text>
+    <text x="600" y="132" fill="#9BF4E8">pdevice -&gt; psi_device_ref</text>
+    <text x="930" y="132" fill="#A7F0B0">3/3 uid=7(lp)</text>
 
-    <text x="40" y="228" fill="#e9f2f5">Ubuntu 22.04</text>
-    <text x="300" y="228" fill="#b9cbd6">9.55.0~dfsg1-0ubuntu5.14</text>
-    <text x="560" y="228" fill="#f7d89a">pdevice is gx_device*</text>
-    <text x="900" y="228" fill="#a7f3e4">3/3 uid=7(lp)</text>
+    <!-- row 2 -->
+    <rect x="40" y="160" width="1120" height="52" rx="6" fill="#071319" stroke="#1E3A42" stroke-opacity="0.7"/>
+    <rect x="40" y="160" width="4" height="52" fill="#7EE787"/>
+    <text x="60" y="192" fill="#F3E6C8">Ubuntu 24.04</text>
+    <text x="300" y="192" fill="#A9BEC8">10.02.1~dfsg1-0ubuntu7.9</text>
+    <text x="600" y="192" fill="#9BF4E8">pdevice -&gt; psi_device_ref</text>
+    <text x="930" y="192" fill="#A7F0B0">3/3 uid=7(lp)</text>
 
-    <line x1="40" y1="256" x2="1160" y2="256" stroke="#1d2f39"/>
-    <text x="40" y="288" fill="#7f95a8">control</text>
-    <text x="300" y="288" fill="#b9cbd6">+deb13u3 / 7.10 / 5.15</text>
-    <text x="560" y="288" fill="#fda4af">dangling lookup fails</text>
-    <text x="900" y="288" fill="#fda4af">no output</text>
+    <!-- row 3 -->
+    <rect x="40" y="220" width="1120" height="52" rx="6" fill="#071319" stroke="#1E3A42" stroke-opacity="0.7"/>
+    <rect x="40" y="220" width="4" height="52" fill="#7EE787"/>
+    <text x="60" y="252" fill="#F3E6C8">Ubuntu 22.04</text>
+    <text x="300" y="252" fill="#A9BEC8">9.55.0~dfsg1-0ubuntu5.14</text>
+    <text x="600" y="252" fill="#F8C24A">pdevice is gx_device*</text>
+    <text x="930" y="252" fill="#A7F0B0">3/3 uid=7(lp)</text>
+
+    <!-- control row -->
+    <rect x="40" y="280" width="1120" height="52" rx="6" fill="#0A1014" stroke="#1E3A42" stroke-dasharray="5 5"/>
+    <rect x="40" y="280" width="4" height="52" fill="#F26D7E"/>
+    <text x="60" y="312" fill="#7C93A0">control</text>
+    <text x="300" y="312" fill="#A9BEC8">+deb13u3 / 7.10 / 5.15</text>
+    <text x="600" y="312" fill="#F5A2AE">dangling lookup fails</text>
+    <text x="930" y="312" fill="#F5A2AE">no output</text>
   </g>
 
-  <text x="40" y="348" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#7f95a8">same request · same payload · three builds · one auto-detect</text>
+  <line x1="40" y1="352" x2="1160" y2="352" stroke="#1E3A42"/>
+  <text x="40" y="378" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7C93A0">same request - same payload - three builds - one auto-detect</text>
+  <g fill="#2EE6D2">
+    <rect x="1100" y="368" width="8" height="8"/>
+    <rect x="1112" y="368" width="4" height="4" opacity="0.6"/>
+  </g>
 </svg>

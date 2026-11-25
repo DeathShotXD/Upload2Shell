@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Render a terminal-style GIF from the real Upload2Shell lab output.
+"""Render the demo GIF for the README in the repo's pixel-terminal colours.
 
-Lines are copied from an actual run (Debian 13, Ubuntu 24.04, Ubuntu 22.04).
-No output is invented.
+The lines below are taken from a real run (Debian 13, Ubuntu 24.04, Ubuntu
+22.04). Nothing here is made up. If you record your own screen capture, drop
+that in at assets/demo.gif instead.
 
     python3 scripts/make_demo.py
 """
@@ -19,14 +20,18 @@ W, H = 960, 560
 FPS = 12
 FRAME = int(1000 / FPS)
 
-BG = (5, 9, 12)
-PANEL = (8, 15, 19)
-BAR = (12, 26, 32)
-BONE = (233, 242, 245)
-DIM = (127, 149, 168)
-TEAL = (94, 234, 212)
-AMBER = (245, 199, 106)
-ROSE = (251, 113, 133)
+# Pixel-terminal palette (matches assets/banner.png + logo.png).
+BG = (3, 7, 11)          # #03070B  base ink
+PANEL = (7, 19, 25)      # #071319  device chrome
+BAR = (12, 32, 39)       # #0C2027  title bar
+EDGE = (30, 58, 66)      # #1E3A42  borders
+BONE = (243, 230, 200)   # #F3E6C8  cream paper
+DIM = (124, 147, 160)    # #7C93A0  muted
+CYAN = (46, 230, 210)    # #2EE6D2  accent / prompt
+ORANGE = (245, 135, 31)  # #F5871F  accent / status
+AMBER = (248, 194, 74)   # #F8C24A  highlight
+ROSE = (242, 109, 126)   # #F26D7E  control
+GREEN = (126, 231, 135)  # #7EE787  terminal output
 
 MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 MONO_B = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
@@ -34,8 +39,8 @@ FONT = ImageFont.truetype(MONO, 13)
 FONT_S = ImageFont.truetype(MONO, 10)
 FONT_T = ImageFont.truetype(MONO_B, 12)
 
-LEFT = 52
-TOP = 100
+LEFT = 60
+TOP = 104
 LH = 20
 
 Segments = list[tuple[str, tuple[int, int, int]]]
@@ -46,11 +51,11 @@ def seg(*parts: tuple[str, tuple[int, int, int]]) -> Segments:
 
 
 OUTPUT = [
-    seg(("$ ", TEAL), ("python3 cups_poc.py -t 127.0.0.1:6310 -q u2s", BONE)),
+    seg(("$ ", CYAN), ("python3 cups_poc.py -t 127.0.0.1:6310 -q u2s", BONE)),
     seg(("  target   127.0.0.1:6310/u2s", DIM)),
-    seg(("  status   0x0000 (successful-ok)  HTTP 200", AMBER)),
-    seg(("$ ", TEAL), ("docker exec u2s-pwn cat /tmp/pwned", BONE)),
-    seg(("uid=7(lp) gid=7(lp) groups=7(lp)", TEAL)),
+    seg(("  status   0x0000 (successful-ok)  HTTP 200", ORANGE)),
+    seg(("$ ", CYAN), ("docker exec u2s-pwn cat /tmp/pwned", BONE)),
+    seg(("uid=7(lp) gid=7(lp) groups=7(lp)", GREEN)),
     seg(("", DIM)),
     seg(("debian13    run 1-3  -> uid=7(lp)", BONE)),
     seg(("ubuntu24.04 run 1-3  -> uid=7(lp)", BONE)),
@@ -62,20 +67,42 @@ OUTPUT = [
 def base() -> tuple[Image.Image, ImageDraw.ImageDraw]:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle([24, 24, W - 24, H - 24], radius=12, fill=PANEL,
-                        outline=(29, 47, 57), width=1)
+    # faint pixel grid
+    for gx in range(0, W, 22):
+        d.line([gx, 0, gx, H], fill=(10, 20, 26))
+    for gy in range(0, H, 22):
+        d.line([0, gy, W, gy], fill=(10, 20, 26))
+    # window
+    d.rounded_rectangle([24, 24, W - 24, H - 24], radius=10, fill=PANEL,
+                        outline=EDGE, width=1)
     d.rectangle([25, 25, W - 25, 70], fill=BAR)
-    d.line([24, 70, W - 24, 70], fill=(29, 47, 57))
-    for i, c in enumerate((ROSE, AMBER, TEAL)):
+    d.line([24, 70, W - 24, 70], fill=EDGE)
+    for i, c in enumerate((ROSE, AMBER, CYAN)):
         d.ellipse([52 + i * 22, 42, 62 + i * 22, 52], fill=c)
     d.text((126, 40), "upload2shell / lab", font=FONT_T, fill=DIM)
-    d.text((W - 52, 40), "AUTHORIZED LAB", font=FONT_T, fill=AMBER, anchor="ra")
-    d.line([24, H - 50, W - 24, H - 50], fill=(29, 47, 57))
-    d.text((52, H - 36), "real run / debian 13 + ubuntu 22.04 + ubuntu 24.04",
+    d.text((W - 52, 40), "AUTHORIZED LAB", font=FONT_T, fill=ORANGE, anchor="ra")
+    d.line([24, H - 50, W - 24, H - 50], fill=EDGE)
+    d.text((60, H - 36), "real run / debian 13 + ubuntu 22.04 + ubuntu 24.04",
            font=FONT_S, fill=DIM)
     d.text((W - 52, H - 36), "github.com/DeathShotXD/Upload2Shell",
            font=FONT_S, fill=DIM, anchor="ra")
+    # pixel accents
+    d.rectangle([24, 24, 28, H - 24], fill=CYAN)
+    d.rectangle([28, 24, 32, H - 24], fill=(20, 120, 112))
+    d.rectangle([W - 32, 24, W - 24, H - 24], fill=(8, 14, 18))
+    for i in range(6):
+        d.rectangle([60 + i * 16, 76, 60 + i * 16 + 8, 80],
+                    fill=CYAN if i % 2 == 0 else ORANGE)
+    d.rectangle([LEFT, TOP - 6, LEFT + 6, TOP], fill=ORANGE)
+    d.rectangle([LEFT + 8, TOP - 6, LEFT + 12, TOP], fill=ORANGE)
     return im, d
+
+
+def scanlines(im: Image.Image) -> Image.Image:
+    d = ImageDraw.Draw(im, "RGBA")
+    for y in range(0, H, 3):
+        d.line([0, y, W, y], fill=(0, 0, 0, 40))
+    return im
 
 
 def draw_line(d: ImageDraw.ImageDraw, y: int, parts: Segments) -> None:
@@ -93,14 +120,14 @@ def render(lines: list[Segments], typed: str | None = None,
         draw_line(d, y, parts)
         y += LH
     if typed is not None:
-        draw_line(d, y, seg(("$ ", TEAL), (typed[:typed_done], BONE)))
+        draw_line(d, y, seg(("$ ", CYAN), (typed[:typed_done], BONE)))
         if cursor:
             x = (LEFT + d.textlength("$ ", font=FONT)
                  + d.textlength(typed[:typed_done], font=FONT))
-            d.rectangle([x + 1, y + 1, x + 8, y + 15], fill=TEAL)
+            d.rectangle([x + 1, y + 1, x + 8, y + 15], fill=CYAN)
     elif cursor:
-        d.rectangle([LEFT, y + 1, LEFT + 7, y + 15], fill=TEAL)
-    return im
+        d.rectangle([LEFT, y + 1, LEFT + 7, y + 15], fill=CYAN)
+    return scanlines(im)
 
 
 def main() -> None:
@@ -115,7 +142,7 @@ def main() -> None:
     text = "python3 cups_poc.py -t 127.0.0.1:6310 -q u2s"
     for i in range(0, len(text) + 1, 3):
         frames.append(render(lines, typed=text, typed_done=i))
-    lines.append(seg(("$ ", TEAL), (text, BONE)))
+    lines.append(seg(("$ ", CYAN), (text, BONE)))
     hold(3)
 
     for item in OUTPUT[1:]:
@@ -126,7 +153,7 @@ def main() -> None:
 
     hold(40)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    flat = frames[-1].quantize(colors=32, method=Image.MEDIANCUT)
+    flat = frames[-1].quantize(colors=48, method=Image.MEDIANCUT)
     pal = [im.quantize(palette=flat, dither=Image.NONE) for im in frames]
     pal[0].save(OUT, save_all=True, append_images=pal[1:], duration=FRAME,
                 loop=0, optimize=True, disposal=2)

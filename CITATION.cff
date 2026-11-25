@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this lab or proof of concept, cite the repository and the CVE record."
-title: "Upload2Shell: CVE-2026-125396 zero-click RCE chain (Debian 13, Ubuntu 22.04/24.04)"
-abstract: "A zero-click exploitation chain for CVE-2026-125396: anonymous IPP Print-Job to a shared CUPS queue, gstopdf/gstoraster, Ghostscript -dSAFER Type 1 font use-after-free, native path-control bypass, and command execution as the filter account."
+title: "Upload2Shell: CVE-2026-125396 zero-click chain (Debian 13, Ubuntu 22.04/24.04)"
+abstract: "A zero-click chain for CVE-2026-125396. An anonymous IPP Print-Job lands on a shared CUPS queue, goes through gstopdf and gstoraster into Ghostscript's -dSAFER, trips a Type 1 font use-after-free, clears the native path control, and runs a command as the filter account."
 authors:
   - family-names: "DeathShotXD"
     alias: "DeathShotXD"

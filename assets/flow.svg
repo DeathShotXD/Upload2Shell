@@ -1,60 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" role="img" aria-labelledby="title desc">
-  <title id="title">Upload2Shell chain</title>
-  <desc id="desc">Anonymous IPP job, CUPS filter chain, Ghostscript UAF, path control bypass, command execution.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" role="img" aria-labelledby="u2s-t u2s-d">
+  <title id="u2s-t">Upload2Shell chain</title>
+  <desc id="u2s-d">Anonymous IPP job, CUPS filter chain, Ghostscript Type 1 UAF, path-control bypass, command execution as lp.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#05090c"/>
-      <stop offset="0.5" stop-color="#08131a"/>
-      <stop offset="1" stop-color="#05090c"/>
+    <linearGradient id="f-ink" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#03070B"/>
+      <stop offset="0.5" stop-color="#06121A"/>
+      <stop offset="1" stop-color="#03070B"/>
     </linearGradient>
+    <pattern id="f-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0H0V22" fill="none" stroke="#0E2229" stroke-width="1"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="320" fill="url(#bg)"/>
-  <text x="40" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#7f95a8" letter-spacing="3">ATTACK FLOW / NO CREDENTIALS, NO INTERACTION</text>
+  <rect width="1200" height="340" fill="url(#f-ink)"/>
+  <rect width="1200" height="340" fill="url(#f-grid)" opacity="0.4"/>
 
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
-    <g>
-      <rect x="40" y="78" width="238" height="132" rx="14" fill="#080f13" stroke="#1d2f39"/>
-      <text x="60" y="108" font-size="11" fill="#7f95a8">01 / DELIVER</text>
-      <text x="60" y="140" font-size="16" fill="#e9f2f5">IPP Print-Job</text>
-      <text x="60" y="166" font-size="11" fill="#a7f3e4">POST /printers/u2s</text>
-      <text x="60" y="186" font-size="11" fill="#7f95a8">anonymous</text>
+  <text x="40" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7C93A0" letter-spacing="3">ATTACK FLOW / NO CREDENTIALS - NO INTERACTION</text>
+  <rect x="40" y="48" width="1120" height="2" fill="#149E8E" opacity="0.35"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <!-- 01 -->
+    <g transform="translate(40,80)">
+      <rect width="238" height="150" rx="8" fill="#071319" stroke="#1E3A42"/>
+      <rect x="0" y="0" width="238" height="4" fill="#2EE6D2"/>
+      <text x="20" y="32" font-size="11" fill="#7C93A0">01 / DELIVER</text>
+      <text x="20" y="68" font-size="17" fill="#F3E6C8">IPP Print-Job</text>
+      <text x="20" y="96" font-size="11" fill="#9BF4E8">POST /printers/u2s</text>
+      <text x="20" y="116" font-size="11" fill="#7C93A0">Content-Type: application/ipp</text>
+      <text x="20" y="136" font-size="11" fill="#7EE787">anonymous</text>
     </g>
-    <g>
-      <rect x="318" y="78" width="238" height="132" rx="14" fill="#080f13" stroke="#f5c76a" stroke-opacity="0.7"/>
-      <text x="338" y="108" font-size="11" fill="#f7d89a">02 / FILTER</text>
-      <text x="338" y="140" font-size="16" fill="#e9f2f5">gstopdf</text>
-      <text x="338" y="166" font-size="11" fill="#f7d89a">→ gstoraster</text>
-      <text x="338" y="186" font-size="11" fill="#7f95a8">gs -dSAFER</text>
+    <!-- 02 -->
+    <g transform="translate(318,80)">
+      <rect width="238" height="150" rx="8" fill="#071319" stroke="#F5871F" stroke-opacity="0.75"/>
+      <rect x="0" y="0" width="238" height="4" fill="#F5871F"/>
+      <text x="20" y="32" font-size="11" fill="#F8C24A">02 / FILTER</text>
+      <text x="20" y="68" font-size="17" fill="#F3E6C8">gstopdf</text>
+      <text x="20" y="96" font-size="11" fill="#F8C24A">-&gt; gstoraster</text>
+      <text x="20" y="116" font-size="11" fill="#7C93A0">libcupsfilters 2.0</text>
+      <text x="20" y="136" font-size="11" fill="#7C93A0">gs -dSAFER</text>
     </g>
-    <g>
-      <rect x="596" y="78" width="238" height="132" rx="14" fill="#080f13" stroke="#fb7185" stroke-opacity="0.7"/>
-      <text x="616" y="108" font-size="11" fill="#fda4af">03 / CORRUPT</text>
-      <text x="616" y="140" font-size="16" fill="#e9f2f5">Type 1 UAF</text>
-      <text x="616" y="166" font-size="11" fill="#fda4af">dangling ref</text>
-      <text x="616" y="186" font-size="11" fill="#7f95a8">path_control_active = 0</text>
+    <!-- 03 -->
+    <g transform="translate(596,80)">
+      <rect width="238" height="150" rx="8" fill="#071319" stroke="#F26D7E" stroke-opacity="0.75"/>
+      <rect x="0" y="0" width="238" height="4" fill="#F26D7E"/>
+      <text x="20" y="32" font-size="11" fill="#F5A2AE">03 / CORRUPT</text>
+      <text x="20" y="68" font-size="17" fill="#F3E6C8">Type 1 UAF</text>
+      <text x="20" y="96" font-size="11" fill="#F5A2AE">dangling ref</text>
+      <text x="20" y="116" font-size="11" fill="#7C93A0">forged string view</text>
+      <text x="20" y="136" font-size="11" fill="#7EE787">path_control_active = 0</text>
     </g>
-    <g>
-      <rect x="874" y="78" width="286" height="132" rx="14" fill="#07171b" stroke="#5eead4" stroke-opacity="0.75"/>
-      <text x="894" y="108" font-size="11" fill="#a7f3e4">04 / EXECUTE</text>
-      <text x="894" y="140" font-size="16" fill="#e9f2f5">%pipe%id</text>
-      <text x="894" y="166" font-size="11" fill="#a7f3e4">uid=7(lp)</text>
-      <text x="894" y="186" font-size="11" fill="#7f95a8">command as the filter user</text>
+    <!-- 04 -->
+    <g transform="translate(874,80)">
+      <rect width="286" height="150" rx="8" fill="#08140C" stroke="#7EE787" stroke-opacity="0.8"/>
+      <rect x="0" y="0" width="286" height="4" fill="#7EE787"/>
+      <text x="20" y="32" font-size="11" fill="#A7F0B0">04 / EXECUTE</text>
+      <text x="20" y="68" font-size="17" fill="#F3E6C8">%pipe%id</text>
+      <text x="20" y="96" font-size="11" fill="#A7F0B0">uid=7(lp)</text>
+      <text x="20" y="116" font-size="11" fill="#7C93A0">command as the filter user</text>
+      <rect x="20" y="124" width="9" height="11" fill="#7EE787"/>
     </g>
   </g>
 
-  <g stroke="#5eead4" stroke-width="2" fill="none">
-    <path d="M 282 144 L 306 144"/>
-    <path d="M 560 144 L 584 144"/>
-    <path d="M 838 144 L 862 144"/>
+  <g stroke="#2EE6D2" stroke-width="2" fill="none">
+    <path d="M 282 155 L 306 155"/>
+    <path d="M 560 155 L 584 155"/>
+    <path d="M 838 155 L 862 155"/>
   </g>
-  <g fill="#5eead4">
-    <path d="M 304 137 L 316 144 L 304 151 z"/>
-    <path d="M 582 137 L 594 144 L 582 151 z"/>
-    <path d="M 860 137 L 872 144 L 860 151 z"/>
+  <g fill="#2EE6D2">
+    <path d="M 302 148 L 316 155 L 302 162 z"/>
+    <path d="M 580 148 L 594 155 L 580 162 z"/>
+    <path d="M 858 148 L 872 155 L 858 162 z"/>
   </g>
 
-  <line x1="40" y1="248" x2="1160" y2="248" stroke="#1d2f39"/>
-  <text x="40" y="278" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#a7f3e4">Deployed app: 26.8.3 / 10.02.1 / 9.55.0 → vulnerable</text>
-  <text x="470" y="278" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#7f95a8">·</text>
-  <text x="494" y="278" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#a7f3e4">Fixed: 10.08.0 / +deb13u2 / 5.15 → dangling lookup fails</text>
+  <line x1="40" y1="270" x2="1160" y2="270" stroke="#1E3A42"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
+    <text x="40" y="300" fill="#A7F0B0">deployed: 26.8.3 / 10.02.1 / 9.55.0 -&gt; vulnerable</text>
+    <text x="470" y="300" fill="#7C93A0">-</text>
+    <text x="494" y="300" fill="#F5A2AE">fixed: 10.08.0 / +deb13u2 / 5.15 -&gt; dangling lookup fails</text>
+  </g>
 </svg>

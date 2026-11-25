@@ -1,44 +1,42 @@
 # Security
 
-## The boundary
+## Read this first
 
-Upload2Shell is a lab reproducer and an authorized-testing toolkit for
-CVE-2026-125396, a use-after-free in Ghostscript's Type 1 font loader.
+This is a lab reproducer plus a client for authorized testing of
+CVE-2026-125396. The exploit really does run code as the CUPS filter account:
+it clears `-dSAFER`'s native path control and then runs your command. So point
+it only at:
 
-The exploit disables `-dSAFER`'s native path control and runs a command as the
-CUPS filter account. That is real code execution. Use it only on:
+- the Docker labs in this repo;
+- a box you own;
+- a box you have written permission to test, with a scope on record;
+- a bug-bounty target whose published scope actually covers the host and its
+  print service.
 
-- the included local Docker labs;
-- a system you own;
-- a system you have written permission to test, with a scope record;
-- a bug-bounty target whose published scope covers the host and the print
-  service.
-
-Do not run it against a live third-party CUPS server, a shared print queue, or
-a defence/government system. Do not use it to read other users' data, establish
-persistence, or disrupt printing.
+Not at a live third-party CUPS server, not at a shared queue, not at anything
+in government or defence. And not to read other people's data, leave anything
+behind, or break printing.
 
 ## The CVE
 
-CVE-2026-125396 was discovered by Paulos Yibelo / pwn.ai and published on
-21 Nov 2026; Ghostscript 10.08.0 fixes it (2026-09-08). This repository does
-not claim discovery. It provides an independent, re-derived Debian 13 /
-Ubuntu 22.04 / Ubuntu 24.04 chain and a standalone IPP client.
+Paulos Yibelo (pwn.ai) found CVE-2026-125396 and published it on 21 Nov 2026.
+Ghostscript 10.08.0 fixes it. I did not find it. This repo is my own chain for
+Debian 13 / Ubuntu 22.04 / Ubuntu 24.04, plus a small standalone IPP client.
 
-## Reporting a bug here
+## Reporting something in this repo
 
-Use GitHub private vulnerability reporting (Security -> Report a vulnerability).
-Do not open a public issue for a scope-guard bypass, a payload that executes on
-a patched build, or anything that could crash a target.
+Use GitHub's private vulnerability reporting (Security -> Report a
+vulnerability). Please do not open a public issue for a scope-guard bypass, a
+payload that fires on a patched build, or anything that could take a target
+down.
 
-## Data handling
+## Output and secrets
 
-The labs use dummy credentials and a disposable container. Do not point
-`--cmd` at a production system with real data unless the engagement scope
-allows it. Command output can contain secrets; treat it as sensitive and never
-commit it.
+The labs use throwaway credentials in a disposable container. If you run
+`--cmd` against anything real, the output can contain secrets. Treat it that
+way and do not commit it.
 
-## Supported versions
+## Versions
 
-0.2.x on Python 3.9+. The client uses only the standard library. The labs need
-Docker and Docker Compose.
+0.2.x, Python 3.9+. The client is standard library only. The labs want Docker
+(Docker Compose if you wire up several distros).
